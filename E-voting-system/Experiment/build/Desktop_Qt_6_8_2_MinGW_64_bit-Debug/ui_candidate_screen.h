@@ -23,7 +23,7 @@ public:
     {
         if (Candidate_screen->objectName().isEmpty())
             Candidate_screen->setObjectName("Candidate_screen");
-        Candidate_screen->resize(400, 300);
+        Candidate_screen->resize(480, 370);
 
         retranslateUi(Candidate_screen);
 
@@ -32,7 +32,7 @@ public:
 
     void retranslateUi(QDialog *Candidate_screen)
     {
-        Candidate_screen->setWindowTitle(QCoreApplication::translate("Candidate_screen", "Dialog", nullptr));
+        Candidate_screen->setWindowTitle(QCoreApplication::translate("Candidate_screen", "Candidate Screen", nullptr));
     } // retranslateUi
 
 };

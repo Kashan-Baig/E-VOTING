@@ -43,7 +43,7 @@ void signwind::on_createacc_btn_clicked()
     }
 
     // Now try inserting the user
-    if (Database::insertUser(name, pass,cnic,date)) {
+    if (Database::insertUser(name, pass,cnic,date,false)) {
         QMessageBox::information(this, "Success", "Account created successfully!");
         hide();
         againlog = new MainWindow(this);
