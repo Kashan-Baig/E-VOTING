@@ -1,6 +1,7 @@
 #include "After_voter_login.h"
 #include "ui_After_voter_login.h"
 #include <QString>
+#include "voter_login.h"
 
 Login::Login(QWidget *parent)
     : QDialog(parent)
@@ -14,8 +15,13 @@ Login::~Login()
     delete ui;
 }
 
-void Login::on_pushButton_clicked()
+
+
+
+void Login::on_Logout_btn_clicked()
 {
-    ui->label->setText("Hello welcome user");
+    hide();
+    MainWindow *voter = new MainWindow();
+    voter->show();
 }
 

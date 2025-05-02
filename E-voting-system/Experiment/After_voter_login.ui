@@ -18,37 +18,137 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>90</y>
-     <width>151</width>
-     <height>81</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>15</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Click Here</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>230</y>
-     <width>241</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>No value</string>
-   </property>
-  </widget>
+  <layout class="QHBoxLayout" name="horizontalLayout_2">
+   <item>
+    <layout class="QGridLayout" name="gridLayout">
+     <property name="leftMargin">
+      <number>44</number>
+     </property>
+     <property name="topMargin">
+      <number>1</number>
+     </property>
+     <property name="rightMargin">
+      <number>37</number>
+     </property>
+     <property name="bottomMargin">
+      <number>7</number>
+     </property>
+     <property name="horizontalSpacing">
+      <number>26</number>
+     </property>
+     <item row="1" column="0">
+      <widget class="QLabel" name="Name">
+       <property name="text">
+        <string>Name</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="Cnic">
+       <property name="text">
+        <string>CNIC</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="Votestatus">
+       <property name="text">
+        <string>Voting Status</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QPushButton" name="Votenow_btn">
+       <property name="baseSize">
+        <size>
+         <width>8</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">/* Normal + hover + pressed directly together */
+#Votenow_btn {
+    background-color: #1a3e8c;   /* Blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 15px 10px;
+    min-width: 100px;
+}
+
+/* Hover effect */
+#Votenow_btn:hover {
+    background-color: #303f9f;   /* Darker blue on hover */
+    color: white;
+}
+
+/* Pressed effect */
+#Votenow_btn:pressed {
+    background-color: #0d47a1;   /* Even darker blue when pressed */
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Vote Now</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QPushButton" name="Logout_btn">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#Logout_btn {
+    background-color: rgb(229, 62, 62);  /* Bright red */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 15px 10px;
+    min-width: 100px;
+}
+
+/* Hover effect (slightly darker red) */
+#Logout_btn:hover {
+    background-color: #c53030;  /* Darker red on hover */
+    color: white;
+}
+
+/* Optional: Pressed effect (even darker) */
+#Logout_btn:pressed {
+    background-color: #9b2c2c;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Logout</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="2">
+      <widget class="QLabel" name="Title">
+       <property name="text">
+        <string>Welcome </string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

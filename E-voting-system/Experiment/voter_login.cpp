@@ -4,6 +4,7 @@
 #include <QMessageBox>
 #include "database.h"
 #include "mainpage.h"
+#include "After_voter_login.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -58,6 +59,9 @@ void MainWindow::on_login_btn_clicked()
     case 2:
         QMessageBox::information(this, "Success", "Login successful!");
         // Proceed to next window
+        hide();
+        Login* l = new Login();
+        l->show();
         break;
     }
 }

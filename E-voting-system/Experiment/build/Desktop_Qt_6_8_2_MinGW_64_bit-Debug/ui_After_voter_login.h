@@ -12,6 +12,8 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 
@@ -20,8 +22,14 @@ QT_BEGIN_NAMESPACE
 class Ui_Login
 {
 public:
-    QPushButton *pushButton;
-    QLabel *label;
+    QHBoxLayout *horizontalLayout_2;
+    QGridLayout *gridLayout;
+    QLabel *Name;
+    QLabel *Cnic;
+    QLabel *Votestatus;
+    QPushButton *Votenow_btn;
+    QPushButton *Logout_btn;
+    QLabel *Title;
 
     void setupUi(QDialog *Login)
     {
@@ -31,15 +39,95 @@ public:
         QFont font;
         font.setPointSize(20);
         Login->setFont(font);
-        pushButton = new QPushButton(Login);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(170, 90, 151, 81));
+        horizontalLayout_2 = new QHBoxLayout(Login);
+        horizontalLayout_2->setObjectName("horizontalLayout_2");
+        gridLayout = new QGridLayout();
+        gridLayout->setObjectName("gridLayout");
+        gridLayout->setHorizontalSpacing(26);
+        gridLayout->setContentsMargins(44, 1, 37, 7);
+        Name = new QLabel(Login);
+        Name->setObjectName("Name");
+
+        gridLayout->addWidget(Name, 1, 0, 1, 1);
+
+        Cnic = new QLabel(Login);
+        Cnic->setObjectName("Cnic");
+
+        gridLayout->addWidget(Cnic, 2, 0, 1, 1);
+
+        Votestatus = new QLabel(Login);
+        Votestatus->setObjectName("Votestatus");
+
+        gridLayout->addWidget(Votestatus, 3, 0, 1, 1);
+
+        Votenow_btn = new QPushButton(Login);
+        Votenow_btn->setObjectName("Votenow_btn");
+        Votenow_btn->setBaseSize(QSize(8, 0));
         QFont font1;
-        font1.setPointSize(15);
-        pushButton->setFont(font1);
-        label = new QLabel(Login);
-        label->setObjectName("label");
-        label->setGeometry(QRect(190, 230, 241, 71));
+        font1.setPointSize(11);
+        font1.setBold(true);
+        Votenow_btn->setFont(font1);
+        Votenow_btn->setStyleSheet(QString::fromUtf8("/* Normal + hover + pressed directly together */\n"
+"#Votenow_btn {\n"
+"    background-color: #1a3e8c;   /* Blue */\n"
+"    color: white;\n"
+"    border: none;\n"
+"    border-radius: 5px;\n"
+"    padding: 10px 20px;\n"
+"    margin: 15px 10px;\n"
+"    min-width: 100px;\n"
+"}\n"
+"\n"
+"/* Hover effect */\n"
+"#Votenow_btn:hover {\n"
+"    background-color: #303f9f;   /* Darker blue on hover */\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"/* Pressed effect */\n"
+"#Votenow_btn:pressed {\n"
+"    background-color: #0d47a1;   /* Even darker blue when pressed */\n"
+"}\n"
+""));
+
+        gridLayout->addWidget(Votenow_btn, 4, 0, 1, 1);
+
+        Logout_btn = new QPushButton(Login);
+        Logout_btn->setObjectName("Logout_btn");
+        Logout_btn->setFont(font1);
+        Logout_btn->setStyleSheet(QString::fromUtf8("#Logout_btn {\n"
+"    background-color: rgb(229, 62, 62);  /* Bright red */\n"
+"    color: white;\n"
+"    border: none;\n"
+"    border-radius: 5px;\n"
+"    padding: 10px 20px;\n"
+"    margin: 15px 10px;\n"
+"    min-width: 100px;\n"
+"}\n"
+"\n"
+"/* Hover effect (slightly darker red) */\n"
+"#Logout_btn:hover {\n"
+"    background-color: #c53030;  /* Darker red on hover */\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"/* Optional: Pressed effect (even darker) */\n"
+"#Logout_btn:pressed {\n"
+"    background-color: #9b2c2c;\n"
+"}\n"
+""));
+
+        gridLayout->addWidget(Logout_btn, 4, 1, 1, 1);
+
+        Title = new QLabel(Login);
+        Title->setObjectName("Title");
+        Title->setAlignment(Qt::AlignmentFlag::AlignCenter);
+
+        gridLayout->addWidget(Title, 0, 0, 1, 2);
+
+
+        horizontalLayout_2->addLayout(gridLayout);
+
 
         retranslateUi(Login);
 
@@ -49,8 +137,12 @@ public:
     void retranslateUi(QDialog *Login)
     {
         Login->setWindowTitle(QCoreApplication::translate("Login", "Dialog", nullptr));
-        pushButton->setText(QCoreApplication::translate("Login", "Click Here", nullptr));
-        label->setText(QCoreApplication::translate("Login", "No value", nullptr));
+        Name->setText(QCoreApplication::translate("Login", "Name", nullptr));
+        Cnic->setText(QCoreApplication::translate("Login", "CNIC", nullptr));
+        Votestatus->setText(QCoreApplication::translate("Login", "Voting Status", nullptr));
+        Votenow_btn->setText(QCoreApplication::translate("Login", "Vote Now", nullptr));
+        Logout_btn->setText(QCoreApplication::translate("Login", "Logout", nullptr));
+        Title->setText(QCoreApplication::translate("Login", "Welcome ", nullptr));
     } // retranslateUi
 
 };

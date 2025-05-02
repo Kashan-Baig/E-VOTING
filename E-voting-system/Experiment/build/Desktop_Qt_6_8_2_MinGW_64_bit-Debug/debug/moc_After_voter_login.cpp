@@ -38,7 +38,7 @@ struct qt_meta_tag_ZN5LoginE_t {};
 #ifdef QT_MOC_HAS_STRINGDATA
 static constexpr auto qt_meta_stringdata_ZN5LoginE = QtMocHelpers::stringData(
     "Login",
-    "on_pushButton_clicked",
+    "on_Logout_btn_clicked",
     ""
 );
 #else  // !QT_MOC_HAS_STRINGDATA
@@ -76,7 +76,7 @@ Q_CONSTINIT const QMetaObject Login::staticMetaObject = { {
     qt_incomplete_metaTypeArray<qt_meta_tag_ZN5LoginE_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<Login, std::true_type>,
-        // method 'on_pushButton_clicked'
+        // method 'on_Logout_btn_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -87,7 +87,7 @@ void Login::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
     auto *_t = static_cast<Login *>(_o);
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: _t->on_pushButton_clicked(); break;
+        case 0: _t->on_Logout_btn_clicked(); break;
         default: ;
         }
     }

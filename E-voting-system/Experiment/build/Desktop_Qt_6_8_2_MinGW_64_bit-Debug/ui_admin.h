@@ -40,7 +40,7 @@ public:
     {
         if (admin->objectName().isEmpty())
             admin->setObjectName("admin");
-        admin->resize(551, 427);
+        admin->resize(589, 427);
         admin->setStyleSheet(QString::fromUtf8("/* ===== Base Dialog Styles ===== */\n"
 "#admin {\n"
 "    background-color: #f5f5f5;  /* Light mode default */\n"
@@ -74,11 +74,12 @@ public:
 "/* ===== Input Fields ===== */\n"
 "#admin QLineEdit {\n"
 "    background: white;\n"
+"	color : black;\n"
 "    border: 1px solid #cbd5e0;\n"
 "    border-radius: 5px;\n"
-"    padding: 10px;\n"
-"    margin"
-                        ": 5px 20px;\n"
+"    padding: "
+                        "10px;\n"
+"    margin: 5px 20px;\n"
 "    min-width: 250px;\n"
 "}\n"
 "\n"
@@ -121,8 +122,8 @@ public:
 "}\n"
 "\n"
 "/* ===== Error Message ===== */\n"
-"#admin QLabel#errorL"
-                        "abel {\n"
+""
+                        "#admin QLabel#errorLabel {\n"
 "    color: #e53e3e;\n"
 "    font-size: 12px;\n"
 "    qproperty-alignment: AlignCenter;\n"
