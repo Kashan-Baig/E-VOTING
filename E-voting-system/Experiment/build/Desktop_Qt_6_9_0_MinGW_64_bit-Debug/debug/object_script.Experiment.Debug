@@ -1,0 +1,17 @@
+debug/After_voter_login.o
+debug/add_candidate.o
+debug/admin.o
+debug/candidates_dashboard.o
+debug/database.o
+debug/main.o
+debug/mainpage.o
+debug/voter_login.o
+debug/voter_signin.o
+debug/qrc_image.o
+debug/moc_After_voter_login.o
+debug/moc_add_candidate.o
+debug/moc_admin.o
+debug/moc_candidates_dashboard.o
+debug/moc_mainpage.o
+debug/moc_voter_login.o
+debug/moc_voter_signin.o

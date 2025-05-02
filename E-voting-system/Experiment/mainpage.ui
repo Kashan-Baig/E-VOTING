@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Mainpage</class>
+ <widget class="QMainWindow" name="Mainpage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>984</width>
+    <height>514</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* Main Window: Clean background with no margins */
+QMainWindow {
+    background: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+}
+
+/* Central Widget */
+QWidget#centralwidget {
+    background: transparent;
+    border: none;
+    margin: 0;
+    padding: 20px;
+}
+
+/* ---- Text Hierarchy ---- */
+/* Main Title: &quot;VOTE&quot; */
+QLabel#mainTitle {
+    font-size: 32px;
+    font-weight: bold;
+    color: #1a237e;
+    qproperty-alignment: AlignCenter;
+    margin-bottom: 0;
+}
+
+/* Subtitle: &quot;The&quot; */
+QLabel#subtitleSecondary {
+    font-size: 14px;
+    color: #666;
+    qproperty-alignment: AlignCenter;
+    margin: 2px 0;
+}
+
+/* Body Text: &quot;Be a part of decision&quot; */
+QLabel#subtitleLabel {
+    font-size: 16px;
+    color: #555;
+    qproperty-alignment: AlignCenter;
+    
+    font-style: italic;
+}
+
+/* CTA: &quot;Vote Today&quot; */
+QLabel#ctaLabel {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1a237e;
+    qproperty-alignment: AlignCenter;
+
+    border-bottom: 1px solid #d0d0d0;
+
+}
+
+/* ---- Buttons ---- */
+QPushButton {
+    background: #1a237e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 14px;
+    min-width: 120px;
+    margin: 5px;
+}
+
+QPushButton:hover {
+    background: #303f9f; /* Hover color only (no transform) */
+}
+
+QPushButton:pressed {
+    background: #0d47a1;
+}
+
+/* Button Layout */
+QHBoxLayout {
+    spacing: 10px;
+    margin: 0px 0 0 0;
+    qproperty-alignment: AlignCenter;
+}
+/* Main Window */
+QMainWindow {
+    background: #f0f2f5;
+    margin: 0;
+    padding: 0;
+}
+
+/* Central Widget - Critical for spacing control */
+QWidget#centralWidget {
+    background: transparent;
+    padding: 20px;
+    margin: 0;
+}
+
+/* Title: &quot;VOTE&quot; */
+QLabel#titleLabel {
+    font-size: 32px;
+    font-weight: bold;
+    color: #1a237e;
+    qproperty-alignment: AlignCenter;
+    margin: 0;
+    padding: 0;
+}
+
+/* Subtitle: &quot;Be a part of decision&quot; */
+QLabel#subtitleLabel {
+    font-size: 16px;
+    color: #555;
+    qproperty-alignment: AlignCenter;
+    margin: 0;  /* Zero margin/padding */
+    padding: 0;
+}
+
+/* CTA: &quot;Vote Today&quot; */
+QLabel#ctaLabel {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1a237e;
+    qproperty-alignment: AlignCenter;
+    margin: 0;  /* Zero margin/padding */
+    padding: 0;
+}
+
+/* Table Styling */
+QTableWidget {
+    margin-top: 15px; /* Space above table only */
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="image.qrc">:/New folder/Main_btn (1).png</pixmap>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="widget_btn3" native="true">
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>99</number>
+         </property>
+         <property name="bottomMargin">
+          <number>184</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font-size: 20px;
+    font-weight: bold;
+    color: rgb(167, 89, 176);
+    qproperty-alignment: AlignCenter;</string>
+           </property>
+           <property name="text">
+            <string>Be a part of decesion </string>
+           </property>
+           <property name="margin">
+            <number>1</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="styleSheet">
+            <string notr="true">font-size: 40px;
+    font-weight: bold;
+    color: rgb(85, 60, 216);
+    qproperty-alignment: AlignCenter;</string>
+           </property>
+           <property name="text">
+            <string>Vote Today</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QWidget" name="widget" native="true">
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <property name="topMargin">
+             <number>16</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QPushButton" name="Admin_btn">
+              <property name="font">
+               <font>
+                <pointsize>-1</pointsize>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Admin</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="Voter_btn">
+              <property name="minimumSize">
+               <size>
+                <width>170</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>-1</pointsize>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Voter</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>984</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources>
+  <include location="image.qrc"/>
+ </resources>
+ <connections/>
+</ui>

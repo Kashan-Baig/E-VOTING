@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>admin</class>
+ <widget class="QDialog" name="admin">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>589</width>
+    <height>427</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Admin Page</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* ===== Base Dialog Styles ===== */
+#admin {
+    background-color: #f5f5f5;  /* Light mode default */
+    border-radius: 8px;
+    font-family: 'Segoe UI';
+}
+
+/* ===== Dark Mode Support ===== */
+[darkMode=&quot;true&quot;] #admin {
+    background-color: #2d3748;  /* Dark slate */
+    color: #e2e8f0;
+}
+
+/* ===== Title Label ===== */
+#label {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(26, 62, 140);
+    padding: 10px 0 10px 0;
+    qproperty-alignment: AlignCenter;
+}
+
+#label_2, #label_3 {
+    color: rgb(26, 62, 140);
+    font-size: 13px;
+    font-weight: bold;
+    padding: 0 50px 0px 20px;  /* Reduced bottom padding (from 20px to 2px) */
+    margin-bottom: -25px;        /* Pulls label closer to the input */
+}
+
+/* ===== Input Fields ===== */
+#admin QLineEdit {
+    background: white;
+	color : black;
+    border: 1px solid #cbd5e0;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 20px;
+    min-width: 250px;
+}
+
+[darkMode=&quot;true&quot;] #admin QLineEdit {
+    background: #4a5568;  /* Dark input */
+    border-color: #718096;
+    color: white;
+}
+
+/* ===== Buttons ===== */
+#admin QPushButton {
+    background-color: #1a3e8c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 15px 10px;
+    min-width: 100px;
+}
+
+#admin QPushButton:hover {
+    background-color: #2c5282;  /* Darker hover */
+}
+
+#admin QPushButton#Back_btn {
+    background-color: #e53e3e;  /* Red for cancel */
+}
+#admin QPushButton#Back_btn:hover {
+    background-color: #c53030;  
+}
+
+[darkMode=&quot;true&quot;] #admin QPushButton {
+    background-color: #4299e1;  /* Light blue */
+}
+
+/* ===== Layout Spacing ===== */
+#admin QVBoxLayout {
+    spacing: 5px;
+    margin: 15px;
+}
+
+/* ===== Error Message ===== */
+#admin QLabel#errorLabel {
+    color: #e53e3e;
+    font-size: 12px;
+    qproperty-alignment: AlignCenter;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <property name="leftMargin">
+      <number>100</number>
+     </property>
+     <property name="topMargin">
+      <number>6</number>
+     </property>
+     <property name="rightMargin">
+      <number>100</number>
+     </property>
+     <property name="bottomMargin">
+      <number>41</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>Admin Login</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Admin ID</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="Adminid">
+       <property name="placeholderText">
+        <string>Enter your ID</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Password</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="adminpass">
+       <property name="placeholderText">
+        <string>Enter password</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_log_bac" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="leftMargin">
+         <number>20</number>
+        </property>
+        <property name="topMargin">
+         <number>21</number>
+        </property>
+        <property name="rightMargin">
+         <number>20</number>
+        </property>
+        <item>
+         <widget class="QPushButton" name="Admin_log_btn">
+          <property name="font">
+           <font>
+            <pointsize>11</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Login</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="Back_btn">
+          <property name="font">
+           <font>
+            <pointsize>11</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Back</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
