@@ -15,6 +15,9 @@ public:
     explicit Candidate_screen(QWidget *parent = nullptr);
     ~Candidate_screen();
 
+private slots:
+    void on_addCandidateButton_clicked();
+
 private:
     Ui::Candidate_screen *ui;
 };

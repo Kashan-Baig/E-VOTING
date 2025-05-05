@@ -47,16 +47,28 @@ public:
         gridLayout->setContentsMargins(44, 1, 37, 7);
         Name = new QLabel(Login);
         Name->setObjectName("Name");
+        Name->setStyleSheet(QString::fromUtf8("   font-size: 18px;\n"
+"    font-weight: 600;\n"
+"    color: rgb(26, 62, 140);\n"
+"    margin-bottom: 5px;"));
 
         gridLayout->addWidget(Name, 1, 0, 1, 1);
 
         Cnic = new QLabel(Login);
         Cnic->setObjectName("Cnic");
+        Cnic->setStyleSheet(QString::fromUtf8("   font-size: 18px;\n"
+"    font-weight: 600;\n"
+"    color: rgb(26, 62, 140);\n"
+"    margin-bottom: 5px;"));
 
         gridLayout->addWidget(Cnic, 2, 0, 1, 1);
 
         Votestatus = new QLabel(Login);
         Votestatus->setObjectName("Votestatus");
+        Votestatus->setStyleSheet(QString::fromUtf8("   font-size: 18px;\n"
+"    font-weight: 600;\n"
+"    color: rgb(26, 62, 140);\n"
+"    margin-bottom: 5px;"));
 
         gridLayout->addWidget(Votestatus, 3, 0, 1, 1);
 
@@ -121,6 +133,10 @@ public:
 
         Title = new QLabel(Login);
         Title->setObjectName("Title");
+        Title->setStyleSheet(QString::fromUtf8(" font-size: 20px;\n"
+"    font-weight: bold;\n"
+"    color: #1a3e8c;\n"
+"    margin-bottom: 10px;"));
         Title->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         gridLayout->addWidget(Title, 0, 0, 1, 2);

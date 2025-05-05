@@ -95,7 +95,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="name_eidt">
+      <widget class="QLineEdit" name="nameField">
        <property name="maximumSize">
         <size>
          <width>464</width>
@@ -128,7 +128,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="comboBox">
+      <widget class="QComboBox" name="partyDropDown">
        <property name="maximumSize">
         <size>
          <width>30</width>
@@ -145,25 +145,18 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_4">
-     <item>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="2">
+      <widget class="QSpinBox" name="ageField"/>
+     </item>
+     <item row="0" column="1">
       <widget class="QLabel" name="gender">
        <property name="text">
         <string>AGE:</string>
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QSpinBox" name="age"/>
-     </item>
-     <item>
-      <widget class="QLabel" name="gender_name">
-       <property name="text">
-        <string>Gender:</string>
-       </property>
-      </widget>
-     </item>
-     <item>
+     <item row="0" column="4">
       <widget class="QComboBox" name="AGE_NO">
        <property name="maximumSize">
         <size>
@@ -188,22 +181,29 @@
        </item>
       </widget>
      </item>
-    </layout>
-   </item>
-   <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_5">
-     <item>
-      <widget class="QLabel" name="Constituency">
+     <item row="1" column="1" colspan="2">
+      <widget class="QLabel" name="pictureLabel">
        <property name="text">
-        <string>Constituency:</string>
+        <string>add candidate picture</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QTextEdit" name="multi_lines"/>
+     <item row="0" column="3">
+      <widget class="QLabel" name="gender_name">
+       <property name="text">
+        <string>Gender:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1" colspan="4">
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>add picture</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
@@ -220,7 +220,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QTextEdit" name="multi_lines2"/>
+      <widget class="QTextEdit" name="bioFiled"/>
      </item>
     </layout>
    </item>

@@ -14,6 +14,7 @@
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QFrame>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -34,21 +35,20 @@ public:
     QFrame *line;
     QHBoxLayout *horizontalLayout_2;
     QLabel *fullname;
-    QLineEdit *name_eidt;
+    QLineEdit *nameField;
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_3;
-    QComboBox *comboBox;
-    QHBoxLayout *horizontalLayout_4;
+    QComboBox *partyDropDown;
+    QGridLayout *gridLayout;
+    QSpinBox *ageField;
     QLabel *gender;
-    QSpinBox *age;
-    QLabel *gender_name;
     QComboBox *AGE_NO;
-    QHBoxLayout *horizontalLayout_5;
-    QLabel *Constituency;
-    QTextEdit *multi_lines;
+    QLabel *pictureLabel;
+    QLabel *gender_name;
+    QPushButton *pushButton;
     QHBoxLayout *horizontalLayout_6;
     QLabel *BIO;
-    QTextEdit *multi_lines2;
+    QTextEdit *bioFiled;
     QHBoxLayout *horizontalLayout_7;
     QPushButton *save;
     QPushButton *cancel;
@@ -111,12 +111,12 @@ public:
 
         horizontalLayout_2->addWidget(fullname);
 
-        name_eidt = new QLineEdit(Candidate);
-        name_eidt->setObjectName("name_eidt");
-        name_eidt->setMaximumSize(QSize(464, 16777215));
-        name_eidt->setStyleSheet(QString::fromUtf8(""));
+        nameField = new QLineEdit(Candidate);
+        nameField->setObjectName("nameField");
+        nameField->setMaximumSize(QSize(464, 16777215));
+        nameField->setStyleSheet(QString::fromUtf8(""));
 
-        horizontalLayout_2->addWidget(name_eidt);
+        horizontalLayout_2->addWidget(nameField);
 
 
         verticalLayout->addLayout(horizontalLayout_2);
@@ -129,32 +129,27 @@ public:
 
         horizontalLayout_3->addWidget(label_3);
 
-        comboBox = new QComboBox(Candidate);
-        comboBox->addItem(QString());
-        comboBox->setObjectName("comboBox");
-        comboBox->setMaximumSize(QSize(30, 30));
+        partyDropDown = new QComboBox(Candidate);
+        partyDropDown->addItem(QString());
+        partyDropDown->setObjectName("partyDropDown");
+        partyDropDown->setMaximumSize(QSize(30, 30));
 
-        horizontalLayout_3->addWidget(comboBox);
+        horizontalLayout_3->addWidget(partyDropDown);
 
 
         verticalLayout->addLayout(horizontalLayout_3);
 
-        horizontalLayout_4 = new QHBoxLayout();
-        horizontalLayout_4->setObjectName("horizontalLayout_4");
+        gridLayout = new QGridLayout();
+        gridLayout->setObjectName("gridLayout");
+        ageField = new QSpinBox(Candidate);
+        ageField->setObjectName("ageField");
+
+        gridLayout->addWidget(ageField, 0, 2, 1, 1);
+
         gender = new QLabel(Candidate);
         gender->setObjectName("gender");
 
-        horizontalLayout_4->addWidget(gender);
-
-        age = new QSpinBox(Candidate);
-        age->setObjectName("age");
-
-        horizontalLayout_4->addWidget(age);
-
-        gender_name = new QLabel(Candidate);
-        gender_name->setObjectName("gender_name");
-
-        horizontalLayout_4->addWidget(gender_name);
+        gridLayout->addWidget(gender, 0, 1, 1, 1);
 
         AGE_NO = new QComboBox(Candidate);
         AGE_NO->addItem(QString());
@@ -163,26 +158,26 @@ public:
         AGE_NO->setObjectName("AGE_NO");
         AGE_NO->setMaximumSize(QSize(30, 30));
 
-        horizontalLayout_4->addWidget(AGE_NO);
+        gridLayout->addWidget(AGE_NO, 0, 4, 1, 1);
+
+        pictureLabel = new QLabel(Candidate);
+        pictureLabel->setObjectName("pictureLabel");
+        pictureLabel->setAlignment(Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop);
+
+        gridLayout->addWidget(pictureLabel, 1, 1, 1, 2);
+
+        gender_name = new QLabel(Candidate);
+        gender_name->setObjectName("gender_name");
+
+        gridLayout->addWidget(gender_name, 0, 3, 1, 1);
+
+        pushButton = new QPushButton(Candidate);
+        pushButton->setObjectName("pushButton");
+
+        gridLayout->addWidget(pushButton, 2, 1, 1, 4);
 
 
-        verticalLayout->addLayout(horizontalLayout_4);
-
-        horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setObjectName("horizontalLayout_5");
-        Constituency = new QLabel(Candidate);
-        Constituency->setObjectName("Constituency");
-        Constituency->setAlignment(Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop);
-
-        horizontalLayout_5->addWidget(Constituency);
-
-        multi_lines = new QTextEdit(Candidate);
-        multi_lines->setObjectName("multi_lines");
-
-        horizontalLayout_5->addWidget(multi_lines);
-
-
-        verticalLayout->addLayout(horizontalLayout_5);
+        verticalLayout->addLayout(gridLayout);
 
         horizontalLayout_6 = new QHBoxLayout();
         horizontalLayout_6->setObjectName("horizontalLayout_6");
@@ -192,10 +187,10 @@ public:
 
         horizontalLayout_6->addWidget(BIO);
 
-        multi_lines2 = new QTextEdit(Candidate);
-        multi_lines2->setObjectName("multi_lines2");
+        bioFiled = new QTextEdit(Candidate);
+        bioFiled->setObjectName("bioFiled");
 
-        horizontalLayout_6->addWidget(multi_lines2);
+        horizontalLayout_6->addWidget(bioFiled);
 
 
         verticalLayout->addLayout(horizontalLayout_6);
@@ -243,17 +238,18 @@ public:
         addcandidate->setText(QCoreApplication::translate("Candidate", "ADD CANDIDATE", nullptr));
         back->setText(QCoreApplication::translate("Candidate", "<-Back", nullptr));
         fullname->setText(QCoreApplication::translate("Candidate", "FullName:", nullptr));
-        name_eidt->setPlaceholderText(QCoreApplication::translate("Candidate", "Enter your name", nullptr));
+        nameField->setPlaceholderText(QCoreApplication::translate("Candidate", "Enter your name", nullptr));
         label_3->setText(QCoreApplication::translate("Candidate", "Parties:", nullptr));
-        comboBox->setItemText(0, QCoreApplication::translate("Candidate", "<", nullptr));
+        partyDropDown->setItemText(0, QCoreApplication::translate("Candidate", "<", nullptr));
 
         gender->setText(QCoreApplication::translate("Candidate", "AGE:", nullptr));
-        gender_name->setText(QCoreApplication::translate("Candidate", "Gender:", nullptr));
         AGE_NO->setItemText(0, QCoreApplication::translate("Candidate", "MALE", nullptr));
         AGE_NO->setItemText(1, QCoreApplication::translate("Candidate", "FEMALE", nullptr));
         AGE_NO->setItemText(2, QCoreApplication::translate("Candidate", "OTHER", nullptr));
 
-        Constituency->setText(QCoreApplication::translate("Candidate", "Constituency:", nullptr));
+        pictureLabel->setText(QCoreApplication::translate("Candidate", "add candidate picture", nullptr));
+        gender_name->setText(QCoreApplication::translate("Candidate", "Gender:", nullptr));
+        pushButton->setText(QCoreApplication::translate("Candidate", "add picture", nullptr));
         BIO->setText(QCoreApplication::translate("Candidate", "BIO:", nullptr));
         save->setText(QCoreApplication::translate("Candidate", "Save", nullptr));
         cancel->setText(QCoreApplication::translate("Candidate", "Cancel", nullptr));

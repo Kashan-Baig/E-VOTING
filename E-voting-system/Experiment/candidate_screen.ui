@@ -13,6 +13,19 @@
   <property name="windowTitle">
    <string>Candidate Screen</string>
   </property>
+  <widget class="QPushButton" name="addCandidateButton">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>20</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Add Candidate</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

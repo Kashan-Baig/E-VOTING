@@ -1,37 +1,37 @@
 #include "database.h"
 #include <QDate>
-#include <QSqlError>   // Added for better error messages
+#include <QDebug>
+#include <QSqlError>
+#include <QSqlQuery>
 
-QSqlDatabase Database::connectDB() {
-    const QString connectionName = QSqlDatabase::defaultConnection;
+QSqlDatabase Database::db = QSqlDatabase();
 
-    // Reuse existing connection if available
-    if (QSqlDatabase::contains(connectionName)) {
-        QSqlDatabase db = QSqlDatabase::database(connectionName);
-        if (!db.isOpen()) {
-            if (!db.open()) {
-                qDebug() << "Error: Could not open existing database connection!";
-            }
-        }
-        return db;
+bool Database::initDB(const QString &dbPath) {
+    if (QSqlDatabase::contains("main_connection")) {
+        db = QSqlDatabase::database("main_connection");
+        return true;
     }
 
-    // Create new connection only once
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("C:/Users/Adnan/Desktop/E-vote2/E-voting-system/database/users.db");
+    db = QSqlDatabase::addDatabase("QSQLITE", "main_connection");
+    db.setDatabaseName(dbPath);
 
     if (!db.open()) {
-        qDebug() << "Error: Could not connect to database!";
-    } else {
-        qDebug() << "Database connected successfully!";
+        qCritical() << "Failed to connect to database:" << db.lastError().text();
+        return false;
     }
 
+    qDebug() << "Database connected successfully to:" << dbPath;
+    return true;
+}
+
+QSqlDatabase Database::getDB() {
+    if (!db.isOpen()) {
+        qWarning() << "Database connection is not open!";
+    }
     return db;
 }
 
-// Function to create users table
 bool Database::createTable() {
-    QSqlDatabase db = Database::connectDB();
     QSqlQuery query(db);
     QString createTableSQL = "CREATE TABLE IF NOT EXISTS users ("
                              "cnic TEXT PRIMARY KEY, "
@@ -41,87 +41,69 @@ bool Database::createTable() {
                              "vote_casted INTEGER NOT NULL DEFAULT 0)";
 
     if (!query.exec(createTableSQL)) {
-        qDebug() << "Error creating table: " << query.lastError().text();
+        qCritical() << "Error creating users table:" << query.lastError().text();
         return false;
     }
-
-    qDebug() << "Users table created successfully!";
     return true;
 }
 
-bool Database::insertUser(const QString &username, const QString &password, const QString &cnic, const QDate &dob, const bool voteCasted) {
-    QSqlDatabase db = connectDB();
+bool Database::insertUser(const QString &username, const QString &password,
+                          const QString &cnic, const QDate &dob,
+                          const bool voteCasted) {
     QSqlQuery query(db);
-
-    query.prepare("INSERT INTO users (username, password, cnic, date_of_birth) "
-                  "VALUES (:username, :password, :cnic, :dob)");
+    query.prepare("INSERT INTO users (username, password, cnic, date_of_birth, vote_casted) "
+                  "VALUES (:username, :password, :cnic, :dob, :vote_casted)");
     query.bindValue(":username", username);
     query.bindValue(":password", password);
     query.bindValue(":cnic", cnic);
     query.bindValue(":dob", dob.toString("yyyy-MM-dd"));
+    query.bindValue(":vote_casted", voteCasted ? 1 : 0);
 
     if (!query.exec()) {
-        qDebug() << "Error inserting user: " << query.lastError().text();
+        qCritical() << "Error inserting user:" << query.lastError().text();
         return false;
     }
-
-    qDebug() << "User inserted successfully!";
     return true;
 }
 
 int Database::loginUser(const QString &cnic, const QString &password) {
-    QSqlDatabase db = connectDB();
     QSqlQuery query(db);
-
-    // First check if CNIC exists
-    query.prepare("SELECT password FROM users WHERE cnic = :cnic");
+    query.prepare("SELECT password, vote_casted FROM users WHERE cnic = :cnic");
     query.bindValue(":cnic", cnic);
 
     if (!query.exec()) {
-        qDebug() << "Login query error: " << query.lastError().text();
-        return -1;  // Database error
+        qCritical() << "Login query error:" << query.lastError().text();
+        return -1; // Database error
     }
 
     if (!query.next()) {
-        qDebug() << "No user found with this CNIC.";
-        return 0;  // CNIC not found
+        return 0; // User not found
     }
 
-    QString storedPassword = query.value("password").toString();
-    if (storedPassword != password) {
-        qDebug() << "Incorrect password for CNIC:" << cnic;
-        return 1;  // Password incorrect
+    if (query.value("password").toString() != password) {
+        return 1; // Wrong password
     }
 
-    qDebug() << "Login successful for CNIC:" << cnic;
-    return 2;  // Login successful
+    if (query.value("vote_casted").toInt() == 1) {
+        return 3; // User already voted
+    }
+
+    return 2; // Success
 }
 
 bool Database::setVoteCasted(const QString &cnic) {
-    QSqlDatabase db = connectDB();
     QSqlQuery query(db);
-
     query.prepare("UPDATE users SET vote_casted = 1 WHERE cnic = :cnic");
     query.bindValue(":cnic", cnic);
 
     if (!query.exec()) {
-        qDebug() << "Error updating vote_casted:" << query.lastError().text();
+        qCritical() << "Error updating vote_casted:" << query.lastError().text();
         return false;
     }
-
-    if (query.numRowsAffected() == 0) {
-        qDebug() << "No user found with CNIC:" << cnic;
-        return false; // No user updated
-    }
-
-    qDebug() << "Vote casted successfully updated for CNIC:" << cnic;
-    return true;
+    return query.numRowsAffected() > 0;
 }
 
-// ------------------------ candidates database table ----------------------------------
-
 bool Database::createCandidatesTable() {
-    QSqlDatabase db = Database::connectDB();
     QSqlQuery query(db);
     QString createTableSQL = "CREATE TABLE IF NOT EXISTS candidates ("
                              "id INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -129,111 +111,126 @@ bool Database::createCandidatesTable() {
                              "full_name TEXT NOT NULL, "
                              "party_name TEXT NOT NULL, "
                              "age INTEGER NOT NULL, "
-                             "election_symbol TEXT, "
                              "bio TEXT)";
 
     if (!query.exec(createTableSQL)) {
-        qDebug() << "Error creating candidates table:" << query.lastError().text();
+        qCritical() << "Error creating candidates table:" << query.lastError().text();
         return false;
     }
-
-    qDebug() << "Candidates table created successfully!";
     return true;
 }
 
 bool Database::insertCandidate(const QByteArray &photoData, const QString &fullName,
-                               const QString &partyName, int age,
-                               const QString &electionSymbol, const QString &bio) {
-    QSqlDatabase db = connectDB();
+                               const QString &partyName, int age, const QString &bio) {
     QSqlQuery query(db);
-
-    query.prepare("INSERT INTO candidates (photo, full_name, party_name, age, election_symbol, bio) "
-                  "VALUES (:photo, :full_name, :party_name, :age, :election_symbol, :bio)");
+    query.prepare("INSERT INTO candidates (photo, full_name, party_name, age, bio) "
+                  "VALUES (:photo, :full_name, :party_name, :age, :bio)");
     query.bindValue(":photo", photoData);
     query.bindValue(":full_name", fullName);
     query.bindValue(":party_name", partyName);
     query.bindValue(":age", age);
-    query.bindValue(":election_symbol", electionSymbol);
     query.bindValue(":bio", bio);
 
     if (!query.exec()) {
-        qDebug() << "Error inserting candidate:" << query.lastError().text();
+        qCritical() << "Error inserting candidate:" << query.lastError().text();
         return false;
     }
-
-    qDebug() << "Candidate inserted successfully!";
     return true;
 }
 
-// get total candidates
-int Database::getTotalCandidates() {
-    QSqlDatabase db = connectDB();
+QList<QVariantMap> Database::getUsersList() {
+    QList<QVariantMap> usersList;
     QSqlQuery query(db);
 
+    if (!query.exec("SELECT * FROM users")) {
+        qCritical() << "Error fetching users:" << query.lastError().text();
+        return usersList;
+    }
+
+    while (query.next()) {
+        QVariantMap user;
+        user["cnic"] = query.value("cnic").toString();
+        user["username"] = query.value("username").toString();
+        user["password"] = query.value("password").toString();
+        user["date_of_birth"] = query.value("date_of_birth").toString();
+        user["vote_casted"] = query.value("vote_casted").toInt();
+        usersList.append(user);
+    }
+
+    return usersList;
+}
+
+QList<QVariantMap> Database::getAllCandidates() {
+    QList<QVariantMap> candidatesList;
+    QSqlQuery query(db);
+
+    if (!query.exec("SELECT * FROM candidates ORDER BY id DESC")) {
+        qCritical() << "Error fetching candidates:" << query.lastError().text();
+        return candidatesList;
+    }
+
+    while (query.next()) {
+        QVariantMap candidate;
+        candidate["id"] = query.value("id").toInt();
+        candidate["photo"] = query.value("photo").toByteArray();
+        candidate["full_name"] = query.value("full_name").toString();
+        candidate["party_name"] = query.value("party_name").toString();
+        candidate["age"] = query.value("age").toInt();
+        candidate["bio"] = query.value("bio").toString();
+        candidatesList.append(candidate);
+    }
+
+    return candidatesList;
+}
+
+QList<QVariantMap> Database::getLatestCandidates(int limit) {
+    QList<QVariantMap> latestCandidates;
+    QSqlQuery query(db);
+    query.prepare("SELECT * FROM candidates ORDER BY id DESC LIMIT :limit");
+    query.bindValue(":limit", limit);
+
+    if (!query.exec()) {
+        qCritical() << "Error fetching latest candidates:" << query.lastError().text();
+        return latestCandidates;
+    }
+
+    while (query.next()) {
+        QVariantMap candidate;
+        candidate["id"] = query.value("id").toInt();
+        candidate["photo"] = query.value("photo").toByteArray();
+        candidate["full_name"] = query.value("full_name").toString();
+        candidate["party_name"] = query.value("party_name").toString();
+        candidate["age"] = query.value("age").toInt();
+        candidate["bio"] = query.value("bio").toString();
+        latestCandidates.append(candidate);
+    }
+
+    return latestCandidates;
+}
+
+int Database::getTotalCandidates() {
+    QSqlQuery query(db);
     if (!query.exec("SELECT COUNT(*) FROM candidates")) {
-        qDebug() << "Error counting candidates:" << query.lastError().text();
-        return -1; // Return -1 if there is an error
+        qCritical() << "Error counting candidates:" << query.lastError().text();
+        return -1;
     }
-
-    if (query.next()) {
-        int count = query.value(0).toInt();
-        qDebug() << "Total candidates:" << count;
-        return count;
-    }
-
-    return 0; // No candidates found
+    return query.next() ? query.value(0).toInt() : 0;
 }
 
 int Database::getTotalUsers() {
-    QSqlDatabase db = connectDB();
     QSqlQuery query(db);
-
     if (!query.exec("SELECT COUNT(*) FROM users")) {
-        qDebug() << "Error counting users:" << query.lastError().text();
-        return -1; // Return -1 if there is an error
+        qCritical() << "Error counting users:" << query.lastError().text();
+        return -1;
     }
-
-    if (query.next()) {
-        int count = query.value(0).toInt();
-        qDebug() << "Total users:" << count;
-        return count;
-    }
-
-    return 0; // No users found
+    return query.next() ? query.value(0).toInt() : 0;
 }
 
 int Database::getTotalVotesCasted() {
-    QSqlDatabase db = connectDB();
     QSqlQuery query(db);
-
     if (!query.exec("SELECT COUNT(*) FROM users WHERE vote_casted = 1")) {
-        qDebug() << "Error counting votes casted:" << query.lastError().text();
-        return -1; // Return -1 if there is an error
+        qCritical() << "Error counting votes casted:" << query.lastError().text();
+        return -1;
     }
-
-    if (query.next()) {
-        int count = query.value(0).toInt();
-        qDebug() << "Total votes casted:" << count;
-        return count;
-    }
-
-    return 0; // No votes casted
-}
-
-int Database::getLatestCandidates() {
-    QSqlDatabase db = connectDB();
-    QSqlQuery query(db);
-
-    if (!query.exec("SELECT * FROM candidates ORDER BY id DESC LIMIT 2")) {
-        qDebug() << "Error fetching latest candidates:" << query.lastError().text();
-        return -1; // Return -1 if there is an error
-    }
-
-    int count = 0;
-    while (query.next()) {
-        count++;
-    }
-
-    qDebug() << "Latest candidates count (up to 2):" << count;
-    return count;
+    return query.next() ? query.value(0).toInt() : 0;
 }
