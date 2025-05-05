@@ -88,6 +88,7 @@ public:
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName("horizontalLayout_2");
+        horizontalLayout_2->setContentsMargins(0, -1, 8, -1);
         fullname = new QLabel(Candidate);
         fullname->setObjectName("fullname");
         fullname->setMaximumSize(QSize(292, 30));
@@ -113,6 +114,7 @@ public:
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName("horizontalLayout_3");
+        horizontalLayout_3->setContentsMargins(9, -1, 8, -1);
         label_3 = new QLabel(Candidate);
         label_3->setObjectName("label_3");
         label_3->setFont(font);
@@ -126,7 +128,7 @@ public:
         partyDropDown = new QComboBox(Candidate);
         partyDropDown->addItem(QString());
         partyDropDown->setObjectName("partyDropDown");
-        partyDropDown->setMaximumSize(QSize(30, 30));
+        partyDropDown->setMaximumSize(QSize(60, 30));
 
         horizontalLayout_3->addWidget(partyDropDown);
 
@@ -135,6 +137,7 @@ public:
 
         gridLayout = new QGridLayout();
         gridLayout->setObjectName("gridLayout");
+        gridLayout->setContentsMargins(9, -1, 8, -1);
         ageField = new QSpinBox(Candidate);
         ageField->setObjectName("ageField");
 
@@ -155,7 +158,7 @@ public:
         AGE_NO->addItem(QString());
         AGE_NO->addItem(QString());
         AGE_NO->setObjectName("AGE_NO");
-        AGE_NO->setMaximumSize(QSize(30, 30));
+        AGE_NO->setMaximumSize(QSize(80, 30));
 
         gridLayout->addWidget(AGE_NO, 0, 4, 1, 1);
 
@@ -196,6 +199,7 @@ public:
 
         horizontalLayout_6 = new QHBoxLayout();
         horizontalLayout_6->setObjectName("horizontalLayout_6");
+        horizontalLayout_6->setContentsMargins(9, 16, 8, 28);
         BIO = new QLabel(Candidate);
         BIO->setObjectName("BIO");
         BIO->setStyleSheet(QString::fromUtf8("   font-size: 13px;\n"
@@ -216,6 +220,7 @@ public:
 
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setObjectName("horizontalLayout_7");
+        horizontalLayout_7->setContentsMargins(9, -1, 8, -1);
         save = new QPushButton(Candidate);
         save->setObjectName("save");
         save->setStyleSheet(QString::fromUtf8("background-color: rgb(26, 62, 140);\n"
@@ -269,6 +274,7 @@ public:
         pushButton->setText(QCoreApplication::translate("Candidate", "Add Picture", nullptr));
         pictureLabel->setText(QCoreApplication::translate("Candidate", "Add Candidate Picture", nullptr));
         BIO->setText(QCoreApplication::translate("Candidate", "BIO:", nullptr));
+        bioFiled->setPlaceholderText(QCoreApplication::translate("Candidate", "Add your bio briefly", nullptr));
         save->setText(QCoreApplication::translate("Candidate", "Save", nullptr));
         cancel->setText(QCoreApplication::translate("Candidate", "< Back", nullptr));
     } // retranslateUi

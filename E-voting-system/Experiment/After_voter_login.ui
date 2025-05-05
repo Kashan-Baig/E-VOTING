@@ -172,22 +172,55 @@
      </item>
      <item row="2" column="1">
       <widget class="QLabel" name="namelabel">
+       <property name="font">
+        <font>
+         <pointsize>-1</pointsize>
+         <fontweight></fontweight>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">   font-size: 17px;
+    font-weight: 510;
+    color: #444444;
+    margin-bottom: 5px;</string>
+       </property>
        <property name="text">
         <string>TextLabel</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
        </property>
       </widget>
      </item>
      <item row="3" column="1">
       <widget class="QLabel" name="cniclabel">
+       <property name="styleSheet">
+        <string notr="true">   font-size: 17px;
+    font-weight: 510;
+    color: #444444;
+    margin-bottom: 5px;</string>
+       </property>
        <property name="text">
         <string>TextLabel</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
        </property>
       </widget>
      </item>
      <item row="4" column="1">
       <widget class="QLabel" name="statuslabel">
+       <property name="styleSheet">
+        <string notr="true">   font-size: 17px;
+    font-weight: 510;
+    color: #444444;
+    margin-bottom: 5px;</string>
+       </property>
        <property name="text">
         <string>TextLabel</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
        </property>
       </widget>
      </item>

@@ -146,16 +146,33 @@ public:
 
         namelabel = new QLabel(Login);
         namelabel->setObjectName("namelabel");
+        QFont font2;
+        namelabel->setFont(font2);
+        namelabel->setStyleSheet(QString::fromUtf8("   font-size: 17px;\n"
+"    font-weight: 510;\n"
+"    color: #444444;\n"
+"    margin-bottom: 5px;"));
+        namelabel->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         gridLayout->addWidget(namelabel, 2, 1, 1, 1);
 
         cniclabel = new QLabel(Login);
         cniclabel->setObjectName("cniclabel");
+        cniclabel->setStyleSheet(QString::fromUtf8("   font-size: 17px;\n"
+"    font-weight: 510;\n"
+"    color: #444444;\n"
+"    margin-bottom: 5px;"));
+        cniclabel->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         gridLayout->addWidget(cniclabel, 3, 1, 1, 1);
 
         statuslabel = new QLabel(Login);
         statuslabel->setObjectName("statuslabel");
+        statuslabel->setStyleSheet(QString::fromUtf8("   font-size: 17px;\n"
+"    font-weight: 510;\n"
+"    color: #444444;\n"
+"    margin-bottom: 5px;"));
+        statuslabel->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         gridLayout->addWidget(statuslabel, 4, 1, 1, 1);
 

@@ -21,6 +21,7 @@ Candidate_screen::~Candidate_screen()
 
 void Candidate_screen::on_addCandidateButton_clicked()
 {
+    hide();
     Candidate* addcandidateScreen = new Candidate();
     addcandidateScreen->show();
 }
