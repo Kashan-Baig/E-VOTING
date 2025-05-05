@@ -12,16 +12,15 @@ class Login : public QDialog
     Q_OBJECT
 
 public:
-    explicit Login(QWidget *parent = nullptr);
+    explicit Login(const QString &cnic, QWidget *parent = nullptr); // 👈 constructor with CNIC
     ~Login();
 
 private slots:
-
-
     void on_Logout_btn_clicked();
 
 private:
     Ui::Login *ui;
+    void loadVoterInfo(const QString &cnic); // 👈 function to load user info
 };
 
 #endif // AFTER_VOTER_LOGIN_H

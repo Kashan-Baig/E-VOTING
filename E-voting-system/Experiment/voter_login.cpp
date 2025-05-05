@@ -59,9 +59,11 @@ void MainWindow::on_login_btn_clicked()
     case 2:
         QMessageBox::information(this, "Success", "Login successful!");
         // Proceed to next window
-        hide();
-        Login* l = new Login();
-        l->show();
+        Login *afterLoginPage = new Login(cnic);
+        afterLoginPage->show();
+        // hide();
+        // Login* l = new Login();
+        // l->show();
         break;
     }
 }

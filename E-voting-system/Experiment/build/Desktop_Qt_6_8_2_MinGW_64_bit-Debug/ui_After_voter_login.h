@@ -24,12 +24,15 @@ class Ui_Login
 public:
     QHBoxLayout *horizontalLayout_2;
     QGridLayout *gridLayout;
-    QLabel *Name;
-    QLabel *Cnic;
-    QLabel *Votestatus;
     QPushButton *Votenow_btn;
+    QLabel *Cnic;
+    QLabel *Name;
+    QLabel *Votestatus;
     QPushButton *Logout_btn;
     QLabel *Title;
+    QLabel *namelabel;
+    QLabel *cniclabel;
+    QLabel *statuslabel;
 
     void setupUi(QDialog *Login)
     {
@@ -45,33 +48,6 @@ public:
         gridLayout->setObjectName("gridLayout");
         gridLayout->setHorizontalSpacing(26);
         gridLayout->setContentsMargins(44, 1, 37, 7);
-        Name = new QLabel(Login);
-        Name->setObjectName("Name");
-        Name->setStyleSheet(QString::fromUtf8("   font-size: 18px;\n"
-"    font-weight: 600;\n"
-"    color: rgb(26, 62, 140);\n"
-"    margin-bottom: 5px;"));
-
-        gridLayout->addWidget(Name, 1, 0, 1, 1);
-
-        Cnic = new QLabel(Login);
-        Cnic->setObjectName("Cnic");
-        Cnic->setStyleSheet(QString::fromUtf8("   font-size: 18px;\n"
-"    font-weight: 600;\n"
-"    color: rgb(26, 62, 140);\n"
-"    margin-bottom: 5px;"));
-
-        gridLayout->addWidget(Cnic, 2, 0, 1, 1);
-
-        Votestatus = new QLabel(Login);
-        Votestatus->setObjectName("Votestatus");
-        Votestatus->setStyleSheet(QString::fromUtf8("   font-size: 18px;\n"
-"    font-weight: 600;\n"
-"    color: rgb(26, 62, 140);\n"
-"    margin-bottom: 5px;"));
-
-        gridLayout->addWidget(Votestatus, 3, 0, 1, 1);
-
         Votenow_btn = new QPushButton(Login);
         Votenow_btn->setObjectName("Votenow_btn");
         Votenow_btn->setBaseSize(QSize(8, 0));
@@ -102,7 +78,34 @@ public:
 "}\n"
 ""));
 
-        gridLayout->addWidget(Votenow_btn, 4, 0, 1, 1);
+        gridLayout->addWidget(Votenow_btn, 5, 0, 1, 1);
+
+        Cnic = new QLabel(Login);
+        Cnic->setObjectName("Cnic");
+        Cnic->setStyleSheet(QString::fromUtf8("   font-size: 18px;\n"
+"    font-weight: 600;\n"
+"    color: rgb(26, 62, 140);\n"
+"    margin-bottom: 5px;"));
+
+        gridLayout->addWidget(Cnic, 3, 0, 1, 1);
+
+        Name = new QLabel(Login);
+        Name->setObjectName("Name");
+        Name->setStyleSheet(QString::fromUtf8("   font-size: 18px;\n"
+"    font-weight: 600;\n"
+"    color: rgb(26, 62, 140);\n"
+"    margin-bottom: 5px;"));
+
+        gridLayout->addWidget(Name, 2, 0, 1, 1);
+
+        Votestatus = new QLabel(Login);
+        Votestatus->setObjectName("Votestatus");
+        Votestatus->setStyleSheet(QString::fromUtf8("   font-size: 18px;\n"
+"    font-weight: 600;\n"
+"    color: rgb(26, 62, 140);\n"
+"    margin-bottom: 5px;"));
+
+        gridLayout->addWidget(Votestatus, 4, 0, 1, 1);
 
         Logout_btn = new QPushButton(Login);
         Logout_btn->setObjectName("Logout_btn");
@@ -129,7 +132,7 @@ public:
 "}\n"
 ""));
 
-        gridLayout->addWidget(Logout_btn, 4, 1, 1, 1);
+        gridLayout->addWidget(Logout_btn, 5, 1, 1, 1);
 
         Title = new QLabel(Login);
         Title->setObjectName("Title");
@@ -140,6 +143,21 @@ public:
         Title->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         gridLayout->addWidget(Title, 0, 0, 1, 2);
+
+        namelabel = new QLabel(Login);
+        namelabel->setObjectName("namelabel");
+
+        gridLayout->addWidget(namelabel, 2, 1, 1, 1);
+
+        cniclabel = new QLabel(Login);
+        cniclabel->setObjectName("cniclabel");
+
+        gridLayout->addWidget(cniclabel, 3, 1, 1, 1);
+
+        statuslabel = new QLabel(Login);
+        statuslabel->setObjectName("statuslabel");
+
+        gridLayout->addWidget(statuslabel, 4, 1, 1, 1);
 
 
         horizontalLayout_2->addLayout(gridLayout);
@@ -153,12 +171,15 @@ public:
     void retranslateUi(QDialog *Login)
     {
         Login->setWindowTitle(QCoreApplication::translate("Login", "Dialog", nullptr));
-        Name->setText(QCoreApplication::translate("Login", "Name", nullptr));
-        Cnic->setText(QCoreApplication::translate("Login", "CNIC", nullptr));
-        Votestatus->setText(QCoreApplication::translate("Login", "Voting Status", nullptr));
         Votenow_btn->setText(QCoreApplication::translate("Login", "Vote Now", nullptr));
+        Cnic->setText(QCoreApplication::translate("Login", "CNIC", nullptr));
+        Name->setText(QCoreApplication::translate("Login", "Name", nullptr));
+        Votestatus->setText(QCoreApplication::translate("Login", "Voting Status", nullptr));
         Logout_btn->setText(QCoreApplication::translate("Login", "Logout", nullptr));
         Title->setText(QCoreApplication::translate("Login", "Welcome ", nullptr));
+        namelabel->setText(QCoreApplication::translate("Login", "TextLabel", nullptr));
+        cniclabel->setText(QCoreApplication::translate("Login", "TextLabel", nullptr));
+        statuslabel->setText(QCoreApplication::translate("Login", "TextLabel", nullptr));
     } // retranslateUi
 
 };

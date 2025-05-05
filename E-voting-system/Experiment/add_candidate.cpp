@@ -5,6 +5,7 @@
 #include <QDebug>
 #include "database.h"
 #include"QMessageBox"
+#include "candidate_screen.h"
 
 Candidate::Candidate(QWidget *parent)
     : QDialog(parent)
@@ -63,5 +64,13 @@ void Candidate::on_pushButton_clicked()
         photoData = byteArray;
 
     }
+}
+
+
+void Candidate::on_cancel_clicked()
+{
+    hide();
+    Candidate_screen* tocand = new Candidate_screen();
+    tocand->show();
 }
 

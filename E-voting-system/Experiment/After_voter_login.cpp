@@ -1,13 +1,14 @@
 #include "After_voter_login.h"
 #include "ui_After_voter_login.h"
-#include <QString>
+#include "database.h"
 #include "voter_login.h"
 
-Login::Login(QWidget *parent)
+Login::Login(const QString &cnic, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Login)
 {
     ui->setupUi(this);
+    loadVoterInfo(cnic);
 }
 
 Login::~Login()
@@ -15,6 +16,19 @@ Login::~Login()
     delete ui;
 }
 
+void Login::loadVoterInfo(const QString &cnic)
+{
+    QList<QVariantMap> users = Database::getUsersList();
+    for (const QVariantMap &user : users) {
+        if (user["cnic"].toString() == cnic) {
+            ui->namelabel->setText(user["username"].toString());
+            ui->cniclabel->setText(user["cnic"].toString());
+            QString status = (user["vote_casted"].toInt() == 1) ? "Voted" : "Not Voted";
+            ui->statuslabel->setText(status);
+            break;
+        }
+    }
+}
 
 
 

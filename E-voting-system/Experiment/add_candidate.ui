@@ -20,37 +20,21 @@
       <widget class="QLabel" name="addcandidate">
        <property name="font">
         <font>
-         <pointsize>14</pointsize>
+         <pointsize>-1</pointsize>
          <bold>true</bold>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color:black;</string>
+        <string notr="true"> font-size: 20px;
+    font-weight: bold;
+    color: #1a3e8c;
+    margin-bottom: 10px;</string>
        </property>
        <property name="text">
         <string>ADD CANDIDATE</string>
        </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="back">
-       <property name="maximumSize">
-        <size>
-         <width>120</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(26, 62, 140);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 600;
-   </string>
-       </property>
-       <property name="text">
-        <string>&lt;-Back</string>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -79,9 +63,15 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>-1</pointsize>
          <bold>true</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">   font-size: 13px;
+    font-weight: 700;
+    color: rgb(26, 62, 140);
+</string>
        </property>
        <property name="text">
         <string>FullName:</string>
@@ -118,9 +108,15 @@
       <widget class="QLabel" name="label_3">
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>-1</pointsize>
          <bold>true</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">   font-size: 13px;
+    font-weight: 700;
+    color: rgb(26, 62, 140);
+</string>
        </property>
        <property name="text">
         <string>Parties:</string>
@@ -151,6 +147,13 @@
      </item>
      <item row="0" column="1">
       <widget class="QLabel" name="gender">
+       <property name="styleSheet">
+        <string notr="true">   font-size: 13px;
+    font-weight: 700;
+    color: rgb(26, 62, 140);
+
+</string>
+       </property>
        <property name="text">
         <string>AGE:</string>
        </property>
@@ -181,18 +184,14 @@
        </item>
       </widget>
      </item>
-     <item row="1" column="1" colspan="2">
-      <widget class="QLabel" name="pictureLabel">
-       <property name="text">
-        <string>add candidate picture</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
-       </property>
-      </widget>
-     </item>
      <item row="0" column="3">
       <widget class="QLabel" name="gender_name">
+       <property name="styleSheet">
+        <string notr="true">   font-size: 13px;
+    font-weight: 700;
+    color: rgb(26, 62, 140);
+</string>
+       </property>
        <property name="text">
         <string>Gender:</string>
        </property>
@@ -200,8 +199,34 @@
      </item>
      <item row="2" column="1" colspan="4">
       <widget class="QPushButton" name="pushButton">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(26, 62, 140);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    padding:5px;
+   </string>
+       </property>
        <property name="text">
-        <string>add picture</string>
+        <string>Add Picture</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1" colspan="4">
+      <widget class="QLabel" name="pictureLabel">
+       <property name="styleSheet">
+        <string notr="true">   font-size: 13px;
+    font-weight: 700;
+    color: rgb(26, 62, 140);
+</string>
+       </property>
+       <property name="text">
+        <string>Add Candidate Picture</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
        </property>
       </widget>
      </item>
@@ -211,11 +236,17 @@
     <layout class="QHBoxLayout" name="horizontalLayout_6">
      <item>
       <widget class="QLabel" name="BIO">
+       <property name="styleSheet">
+        <string notr="true">   font-size: 13px;
+    font-weight: 700;
+    color: rgb(26, 62, 140);
+</string>
+       </property>
        <property name="text">
         <string>BIO:</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
        </property>
       </widget>
      </item>
@@ -246,17 +277,17 @@
      <item>
       <widget class="QPushButton" name="cancel">
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(26, 62, 140);
-    color: white;
+        <string notr="true">background-color: rgb(229, 62, 62);
+ color: white;
     border: none;
     border-radius: 6px;
     font-size: 14px;
     font-weight: 600;
-    padding:5px
+    padding:5px;
    </string>
        </property>
        <property name="text">
-        <string>Cancel</string>
+        <string>&lt; Back</string>
        </property>
       </widget>
      </item>
