@@ -33,26 +33,26 @@ public:
     QPushButton *result_btn;
     QGridLayout *gridLayout_2;
     QLabel *candidates;
-    QLabel *label_2;
+    QLabel *total_candidates;
     QLabel *vters;
-    QLabel *label_3;
+    QLabel *total_voters;
     QLabel *castsvote;
-    QLabel *label_4;
+    QLabel *total_votes_casted;
     QLabel *LIVE_STATS;
     QHBoxLayout *horizontalLayout_3;
     QLabel *label;
     QGridLayout *gridLayout;
-    QLabel *label_9;
-    QLabel *label_8;
+    QLabel *id_2;
+    QLabel *bio_1;
     QLabel *name;
-    QLabel *label_7;
+    QLabel *party_1;
     QLabel *id;
-    QLabel *label_12;
-    QLabel *label_5;
-    QLabel *label_6;
-    QLabel *label_11;
+    QLabel *bio_2;
+    QLabel *id_1;
+    QLabel *name_1;
+    QLabel *party_2;
     QLabel *party;
-    QLabel *label_10;
+    QLabel *name_2;
     QLabel *actions;
 
     void setupUi(QWidget *candidates_dashboard)
@@ -166,10 +166,10 @@ public:
 
         gridLayout_2->addWidget(candidates, 1, 0, 1, 1);
 
-        label_2 = new QLabel(candidates_dashboard);
-        label_2->setObjectName("label_2");
+        total_candidates = new QLabel(candidates_dashboard);
+        total_candidates->setObjectName("total_candidates");
 
-        gridLayout_2->addWidget(label_2, 1, 1, 1, 1);
+        gridLayout_2->addWidget(total_candidates, 1, 1, 1, 1);
 
         vters = new QLabel(candidates_dashboard);
         vters->setObjectName("vters");
@@ -180,10 +180,10 @@ public:
 
         gridLayout_2->addWidget(vters, 2, 0, 1, 1);
 
-        label_3 = new QLabel(candidates_dashboard);
-        label_3->setObjectName("label_3");
+        total_voters = new QLabel(candidates_dashboard);
+        total_voters->setObjectName("total_voters");
 
-        gridLayout_2->addWidget(label_3, 2, 1, 1, 1);
+        gridLayout_2->addWidget(total_voters, 2, 1, 1, 1);
 
         castsvote = new QLabel(candidates_dashboard);
         castsvote->setObjectName("castsvote");
@@ -194,10 +194,10 @@ public:
 
         gridLayout_2->addWidget(castsvote, 3, 0, 1, 1);
 
-        label_4 = new QLabel(candidates_dashboard);
-        label_4->setObjectName("label_4");
+        total_votes_casted = new QLabel(candidates_dashboard);
+        total_votes_casted->setObjectName("total_votes_casted");
 
-        gridLayout_2->addWidget(label_4, 3, 1, 1, 1);
+        gridLayout_2->addWidget(total_votes_casted, 3, 1, 1, 1);
 
         LIVE_STATS = new QLabel(candidates_dashboard);
         LIVE_STATS->setObjectName("LIVE_STATS");
@@ -233,17 +233,17 @@ public:
 
         gridLayout = new QGridLayout();
         gridLayout->setObjectName("gridLayout");
-        label_9 = new QLabel(candidates_dashboard);
-        label_9->setObjectName("label_9");
-        label_9->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        id_2 = new QLabel(candidates_dashboard);
+        id_2->setObjectName("id_2");
+        id_2->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
-        gridLayout->addWidget(label_9, 3, 0, 1, 1);
+        gridLayout->addWidget(id_2, 3, 0, 1, 1);
 
-        label_8 = new QLabel(candidates_dashboard);
-        label_8->setObjectName("label_8");
-        label_8->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        bio_1 = new QLabel(candidates_dashboard);
+        bio_1->setObjectName("bio_1");
+        bio_1->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
-        gridLayout->addWidget(label_8, 2, 3, 1, 1);
+        gridLayout->addWidget(bio_1, 2, 3, 1, 1);
 
         name = new QLabel(candidates_dashboard);
         name->setObjectName("name");
@@ -259,11 +259,11 @@ public:
 
         gridLayout->addWidget(name, 1, 1, 1, 1);
 
-        label_7 = new QLabel(candidates_dashboard);
-        label_7->setObjectName("label_7");
-        label_7->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        party_1 = new QLabel(candidates_dashboard);
+        party_1->setObjectName("party_1");
+        party_1->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
-        gridLayout->addWidget(label_7, 2, 2, 1, 1);
+        gridLayout->addWidget(party_1, 2, 2, 1, 1);
 
         id = new QLabel(candidates_dashboard);
         id->setObjectName("id");
@@ -279,29 +279,29 @@ public:
 
         gridLayout->addWidget(id, 1, 0, 1, 1);
 
-        label_12 = new QLabel(candidates_dashboard);
-        label_12->setObjectName("label_12");
-        label_12->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        bio_2 = new QLabel(candidates_dashboard);
+        bio_2->setObjectName("bio_2");
+        bio_2->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
-        gridLayout->addWidget(label_12, 3, 3, 1, 1);
+        gridLayout->addWidget(bio_2, 3, 3, 1, 1);
 
-        label_5 = new QLabel(candidates_dashboard);
-        label_5->setObjectName("label_5");
-        label_5->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        id_1 = new QLabel(candidates_dashboard);
+        id_1->setObjectName("id_1");
+        id_1->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
-        gridLayout->addWidget(label_5, 2, 0, 1, 1);
+        gridLayout->addWidget(id_1, 2, 0, 1, 1);
 
-        label_6 = new QLabel(candidates_dashboard);
-        label_6->setObjectName("label_6");
-        label_6->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        name_1 = new QLabel(candidates_dashboard);
+        name_1->setObjectName("name_1");
+        name_1->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
-        gridLayout->addWidget(label_6, 2, 1, 1, 1);
+        gridLayout->addWidget(name_1, 2, 1, 1, 1);
 
-        label_11 = new QLabel(candidates_dashboard);
-        label_11->setObjectName("label_11");
-        label_11->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        party_2 = new QLabel(candidates_dashboard);
+        party_2->setObjectName("party_2");
+        party_2->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
-        gridLayout->addWidget(label_11, 3, 2, 1, 1);
+        gridLayout->addWidget(party_2, 3, 2, 1, 1);
 
         party = new QLabel(candidates_dashboard);
         party->setObjectName("party");
@@ -313,11 +313,11 @@ public:
 
         gridLayout->addWidget(party, 1, 2, 1, 1);
 
-        label_10 = new QLabel(candidates_dashboard);
-        label_10->setObjectName("label_10");
-        label_10->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        name_2 = new QLabel(candidates_dashboard);
+        name_2->setObjectName("name_2");
+        name_2->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
-        gridLayout->addWidget(label_10, 3, 1, 1, 1);
+        gridLayout->addWidget(name_2, 3, 1, 1, 1);
 
         actions = new QLabel(candidates_dashboard);
         actions->setObjectName("actions");
@@ -346,25 +346,25 @@ public:
         cadidates_btn->setText(QCoreApplication::translate("candidates_dashboard", "Voters", nullptr));
         result_btn->setText(QCoreApplication::translate("candidates_dashboard", "Results", nullptr));
         candidates->setText(QCoreApplication::translate("candidates_dashboard", "Candidates :", nullptr));
-        label_2->setText(QCoreApplication::translate("candidates_dashboard", "TextLabel", nullptr));
+        total_candidates->setText(QCoreApplication::translate("candidates_dashboard", "TextLabel", nullptr));
         vters->setText(QCoreApplication::translate("candidates_dashboard", "Voters :", nullptr));
-        label_3->setText(QCoreApplication::translate("candidates_dashboard", "TextLabel", nullptr));
+        total_voters->setText(QCoreApplication::translate("candidates_dashboard", "TextLabel", nullptr));
         castsvote->setText(QCoreApplication::translate("candidates_dashboard", "Votes Cast :", nullptr));
-        label_4->setText(QCoreApplication::translate("candidates_dashboard", "TextLabel", nullptr));
+        total_votes_casted->setText(QCoreApplication::translate("candidates_dashboard", "TextLabel", nullptr));
         LIVE_STATS->setText(QCoreApplication::translate("candidates_dashboard", "LIVE STATS", nullptr));
         label->setText(QCoreApplication::translate("candidates_dashboard", "RECENT CANDIDATES", nullptr));
-        label_9->setText(QCoreApplication::translate("candidates_dashboard", "TextLabel", nullptr));
-        label_8->setText(QCoreApplication::translate("candidates_dashboard", "TextLabel", nullptr));
+        id_2->setText(QCoreApplication::translate("candidates_dashboard", "TextLabel", nullptr));
+        bio_1->setText(QCoreApplication::translate("candidates_dashboard", "TextLabel", nullptr));
         name->setText(QCoreApplication::translate("candidates_dashboard", "Name", nullptr));
-        label_7->setText(QCoreApplication::translate("candidates_dashboard", "TextLabel", nullptr));
+        party_1->setText(QCoreApplication::translate("candidates_dashboard", "TextLabel", nullptr));
         id->setText(QCoreApplication::translate("candidates_dashboard", "ID", nullptr));
-        label_12->setText(QCoreApplication::translate("candidates_dashboard", "TextLabel", nullptr));
-        label_5->setText(QCoreApplication::translate("candidates_dashboard", "TextLabel", nullptr));
-        label_6->setText(QCoreApplication::translate("candidates_dashboard", "TextLabel", nullptr));
-        label_11->setText(QCoreApplication::translate("candidates_dashboard", "TextLabel", nullptr));
+        bio_2->setText(QCoreApplication::translate("candidates_dashboard", "TextLabel", nullptr));
+        id_1->setText(QCoreApplication::translate("candidates_dashboard", "TextLabel", nullptr));
+        name_1->setText(QCoreApplication::translate("candidates_dashboard", "TextLabel", nullptr));
+        party_2->setText(QCoreApplication::translate("candidates_dashboard", "TextLabel", nullptr));
         party->setText(QCoreApplication::translate("candidates_dashboard", "Party", nullptr));
-        label_10->setText(QCoreApplication::translate("candidates_dashboard", "TextLabel", nullptr));
-        actions->setText(QCoreApplication::translate("candidates_dashboard", "Actions", nullptr));
+        name_2->setText(QCoreApplication::translate("candidates_dashboard", "TextLabel", nullptr));
+        actions->setText(QCoreApplication::translate("candidates_dashboard", "BIO", nullptr));
     } // retranslateUi
 
 };

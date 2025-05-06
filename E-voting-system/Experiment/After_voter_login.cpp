@@ -25,6 +25,12 @@ void Login::loadVoterInfo(const QString &cnic)
             ui->cniclabel->setText(user["cnic"].toString());
             QString status = (user["vote_casted"].toInt() == 1) ? "Voted" : "Not Voted";
             ui->statuslabel->setText(status);
+            if (status == "Voted") {
+                ui->Votenow_btn->setEnabled(false);
+                ui->Votenow_btn->setStyleSheet("background-color: gray; color: white;");
+            } else {
+                ui->Votenow_btn->setEnabled(true);
+            }
             break;
         }
     }

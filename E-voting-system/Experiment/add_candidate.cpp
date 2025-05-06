@@ -51,8 +51,8 @@ void Candidate::on_pushButton_clicked()
 
     if (!filePath.isEmpty()) {
         QPixmap pixmap(filePath);
-        ui->pictureLabel->setPixmap(pixmap);
-        ui->pictureLabel->setScaledContents(true);
+        ui->picture_label->setPixmap(pixmap);
+        ui->picture_label->setScaledContents(true);
 
         // Convert to QByteArray
         QByteArray byteArray;
@@ -62,7 +62,6 @@ void Candidate::on_pushButton_clicked()
 
         // Store in a class member for later use (like database insertion)
         photoData = byteArray;
-
     }
 }
 
