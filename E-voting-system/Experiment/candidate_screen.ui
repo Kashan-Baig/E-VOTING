@@ -37,6 +37,16 @@
         <height>16777215</height>
        </size>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(26, 62, 140);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    padding:5px;
+   </string>
+      </property>
       <property name="text">
        <string>Add Candidate</string>
       </property>
@@ -44,6 +54,12 @@
     </item>
     <item row="1" column="0" colspan="3" alignment="Qt::AlignmentFlag::AlignHCenter">
      <widget class="QLabel" name="label">
+      <property name="styleSheet">
+       <string notr="true"> font-size: 20px;
+    font-weight: bold;
+    color: #1a3e8c;
+    margin-bottom: 10px;</string>
+      </property>
       <property name="text">
        <string>Candidate List</string>
       </property>
@@ -63,8 +79,18 @@
         <height>16777215</height>
        </size>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(229, 62, 62);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    padding:5px;
+   </string>
+      </property>
       <property name="text">
-       <string>back</string>
+       <string>&lt; Back</string>
       </property>
      </widget>
     </item>

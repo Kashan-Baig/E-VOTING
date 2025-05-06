@@ -49,11 +49,23 @@ public:
         addCandidateButton->setObjectName("addCandidateButton");
         addCandidateButton->setMinimumSize(QSize(200, 0));
         addCandidateButton->setMaximumSize(QSize(100, 16777215));
+        addCandidateButton->setStyleSheet(QString::fromUtf8("background-color: rgb(26, 62, 140);\n"
+"    color: white;\n"
+"    border: none;\n"
+"    border-radius: 6px;\n"
+"    font-size: 14px;\n"
+"    font-weight: 600;\n"
+"    padding:5px;\n"
+"   "));
 
         gridLayout->addWidget(addCandidateButton, 0, 0, 1, 1);
 
         label = new QLabel(gridLayoutWidget);
         label->setObjectName("label");
+        label->setStyleSheet(QString::fromUtf8(" font-size: 20px;\n"
+"    font-weight: bold;\n"
+"    color: #1a3e8c;\n"
+"    margin-bottom: 10px;"));
 
         gridLayout->addWidget(label, 1, 0, 1, 3, Qt::AlignmentFlag::AlignHCenter);
 
@@ -61,6 +73,14 @@ public:
         pushButton->setObjectName("pushButton");
         pushButton->setMinimumSize(QSize(100, 0));
         pushButton->setMaximumSize(QSize(200, 16777215));
+        pushButton->setStyleSheet(QString::fromUtf8("background-color: rgb(229, 62, 62);\n"
+"    color: white;\n"
+"    border: none;\n"
+"    border-radius: 6px;\n"
+"    font-size: 14px;\n"
+"    font-weight: 600;\n"
+"    padding:5px;\n"
+"   "));
 
         gridLayout->addWidget(pushButton, 0, 2, 1, 1);
 
@@ -91,7 +111,7 @@ public:
         Candidate_screen->setWindowTitle(QCoreApplication::translate("Candidate_screen", "Candidate Screen", nullptr));
         addCandidateButton->setText(QCoreApplication::translate("Candidate_screen", "Add Candidate", nullptr));
         label->setText(QCoreApplication::translate("Candidate_screen", "Candidate List", nullptr));
-        pushButton->setText(QCoreApplication::translate("Candidate_screen", "back", nullptr));
+        pushButton->setText(QCoreApplication::translate("Candidate_screen", "< Back", nullptr));
     } // retranslateUi
 
 };
