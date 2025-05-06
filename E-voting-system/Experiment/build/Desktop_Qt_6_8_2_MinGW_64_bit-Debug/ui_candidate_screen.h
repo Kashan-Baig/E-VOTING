@@ -12,23 +12,74 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QScrollArea>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_Candidate_screen
 {
 public:
+    QWidget *gridLayoutWidget;
+    QGridLayout *gridLayout;
     QPushButton *addCandidateButton;
+    QLabel *label;
+    QPushButton *pushButton;
+    QScrollArea *scrollArea;
+    QWidget *canddiateList;
+    QVBoxLayout *verticalLayout;
+    QWidget *widget;
 
     void setupUi(QDialog *Candidate_screen)
     {
         if (Candidate_screen->objectName().isEmpty())
             Candidate_screen->setObjectName("Candidate_screen");
-        Candidate_screen->resize(480, 370);
-        addCandidateButton = new QPushButton(Candidate_screen);
+        Candidate_screen->resize(697, 554);
+        gridLayoutWidget = new QWidget(Candidate_screen);
+        gridLayoutWidget->setObjectName("gridLayoutWidget");
+        gridLayoutWidget->setGeometry(QRect(0, 0, 691, 111));
+        gridLayout = new QGridLayout(gridLayoutWidget);
+        gridLayout->setObjectName("gridLayout");
+        gridLayout->setContentsMargins(0, 0, 0, 0);
+        addCandidateButton = new QPushButton(gridLayoutWidget);
         addCandidateButton->setObjectName("addCandidateButton");
-        addCandidateButton->setGeometry(QRect(180, 20, 111, 41));
+        addCandidateButton->setMinimumSize(QSize(200, 0));
+        addCandidateButton->setMaximumSize(QSize(100, 16777215));
+
+        gridLayout->addWidget(addCandidateButton, 0, 0, 1, 1);
+
+        label = new QLabel(gridLayoutWidget);
+        label->setObjectName("label");
+
+        gridLayout->addWidget(label, 1, 0, 1, 3, Qt::AlignmentFlag::AlignHCenter);
+
+        pushButton = new QPushButton(gridLayoutWidget);
+        pushButton->setObjectName("pushButton");
+        pushButton->setMinimumSize(QSize(100, 0));
+        pushButton->setMaximumSize(QSize(200, 16777215));
+
+        gridLayout->addWidget(pushButton, 0, 2, 1, 1);
+
+        scrollArea = new QScrollArea(Candidate_screen);
+        scrollArea->setObjectName("scrollArea");
+        scrollArea->setGeometry(QRect(10, 140, 661, 391));
+        scrollArea->setWidgetResizable(true);
+        canddiateList = new QWidget();
+        canddiateList->setObjectName("canddiateList");
+        canddiateList->setGeometry(QRect(0, 0, 659, 389));
+        verticalLayout = new QVBoxLayout(canddiateList);
+        verticalLayout->setObjectName("verticalLayout");
+        widget = new QWidget(canddiateList);
+        widget->setObjectName("widget");
+        widget->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
+
+        verticalLayout->addWidget(widget);
+
+        scrollArea->setWidget(canddiateList);
 
         retranslateUi(Candidate_screen);
 
@@ -39,6 +90,8 @@ public:
     {
         Candidate_screen->setWindowTitle(QCoreApplication::translate("Candidate_screen", "Candidate Screen", nullptr));
         addCandidateButton->setText(QCoreApplication::translate("Candidate_screen", "Add Candidate", nullptr));
+        label->setText(QCoreApplication::translate("Candidate_screen", "Candidate List", nullptr));
+        pushButton->setText(QCoreApplication::translate("Candidate_screen", "back", nullptr));
     } // retranslateUi
 
 };
