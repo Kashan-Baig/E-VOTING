@@ -6,6 +6,7 @@ debug/candidates_dashboard.o
 debug/database.o
 debug/main.o
 debug/mainpage.o
+debug/vote_casting.o
 debug/voter_login.o
 debug/voter_signin.o
 debug/qrc_image.o
@@ -15,5 +16,6 @@ debug/moc_admin.o
 debug/moc_candidate_screen.o
 debug/moc_candidates_dashboard.o
 debug/moc_mainpage.o
+debug/moc_vote_casting.o
 debug/moc_voter_login.o
 debug/moc_voter_signin.o

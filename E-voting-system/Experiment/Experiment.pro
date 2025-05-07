@@ -18,6 +18,7 @@ SOURCES += \
     database.cpp \
     main.cpp \
     mainpage.cpp \
+    vote_casting.cpp \
     voter_login.cpp \
     voter_signin.cpp
 
@@ -29,6 +30,7 @@ HEADERS += \
     candidates_dashboard.h \
     database.h \
     mainpage.h \
+    vote_casting.h \
     voter_login.h \
     voter_signin.h
 
@@ -40,6 +42,7 @@ FORMS += \
     candidate_screen.ui \
     candidates_dashboard.ui \
     mainpage.ui \
+    vote_casting.ui \
     voter_login.ui \
     voter_signin.ui
 

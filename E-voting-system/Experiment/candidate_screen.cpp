@@ -3,6 +3,7 @@
 #include "add_candidate.h"
 #include "database.h"
 #include "QLabel"
+#include "candidates_dashboard.h"
 
 
 Candidate_screen::Candidate_screen(QWidget *parent)
@@ -100,5 +101,13 @@ void Candidate_screen::on_addCandidateButton_clicked()
     hide();
     Candidate* addcandidateScreen = new Candidate();
     addcandidateScreen->show();
+}
+
+
+void Candidate_screen::on_pushButton_clicked()
+{
+    hide();
+    candidates_dashboard* tocanddash = new candidates_dashboard();
+    tocanddash->show();
 }
 

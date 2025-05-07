@@ -18,6 +18,8 @@ public:
 private slots:
     void on_addCandidateButton_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::Candidate_screen *ui;
 };

@@ -6,6 +6,7 @@ release/candidates_dashboard.o
 release/database.o
 release/main.o
 release/mainpage.o
+release/vote_casting.o
 release/voter_login.o
 release/voter_signin.o
 release/qrc_image.o
@@ -15,5 +16,6 @@ release/moc_admin.o
 release/moc_candidate_screen.o
 release/moc_candidates_dashboard.o
 release/moc_mainpage.o
+release/moc_vote_casting.o
 release/moc_voter_login.o
 release/moc_voter_signin.o

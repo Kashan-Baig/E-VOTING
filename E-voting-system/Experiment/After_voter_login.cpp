@@ -2,6 +2,7 @@
 #include "ui_After_voter_login.h"
 #include "database.h"
 #include "voter_login.h"
+#include "vote_casting.h"
 
 Login::Login(const QString &cnic, QWidget *parent)
     : QDialog(parent)
@@ -43,5 +44,13 @@ void Login::on_Logout_btn_clicked()
     hide();
     MainWindow *voter = new MainWindow();
     voter->show();
+}
+
+
+void Login::on_Votenow_btn_clicked()
+{
+    hide();
+    Vote_Casting *v = new Vote_Casting();
+    v->show();
 }
 

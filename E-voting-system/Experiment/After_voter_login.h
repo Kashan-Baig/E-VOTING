@@ -18,6 +18,8 @@ public:
 private slots:
     void on_Logout_btn_clicked();
 
+    void on_Votenow_btn_clicked();
+
 private:
     Ui::Login *ui;
     void loadVoterInfo(const QString &cnic); // 👈 function to load user info
