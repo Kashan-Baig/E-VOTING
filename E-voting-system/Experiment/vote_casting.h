@@ -2,6 +2,7 @@
 #define VOTE_CASTING_H
 
 #include <QDialog>
+#include <QButtonGroup>
 
 namespace Ui {
 class Vote_Casting;
@@ -17,6 +18,9 @@ public:
 
 private:
     Ui::Vote_Casting *ui;
+    QButtonGroup *buttonGroup;
+private slots:
+    void submitVote();
 };
 
 #endif // VOTE_CASTING_H

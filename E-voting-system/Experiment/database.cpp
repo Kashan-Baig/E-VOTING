@@ -234,3 +234,4 @@ int Database::getTotalVotesCasted() {
     }
     return query.next() ? query.value(0).toInt() : 0;
 }
+
