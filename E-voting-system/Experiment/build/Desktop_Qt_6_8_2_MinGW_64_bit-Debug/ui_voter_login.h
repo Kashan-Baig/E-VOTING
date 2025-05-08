@@ -54,7 +54,7 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
         MainWindow->resize(689, 545);
-        MainWindow->setMinimumSize(QSize(0, 324));
+        MainWindow->setMinimumSize(QSize(500, 324));
         MainWindow->setStyleSheet(QString::fromUtf8("QWidget {\n"
 "    background-color: #f5f5f5;\n"
 "}\n"

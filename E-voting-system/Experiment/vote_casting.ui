@@ -43,7 +43,7 @@
              <x>0</x>
              <y>0</y>
              <width>658</width>
-             <height>260</height>
+             <height>245</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout"/>
@@ -52,6 +52,17 @@
         </item>
         <item>
          <widget class="QPushButton" name="submitButton">
+          <property name="styleSheet">
+           <string notr="true"> background-color: rgb(26, 62, 140);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    margin: 0 5px;
+    font-size: 14px;
+    font-weight: 600;
+    min-width: 120px;</string>
+          </property>
           <property name="text">
            <string>Submit Vote</string>
           </property>

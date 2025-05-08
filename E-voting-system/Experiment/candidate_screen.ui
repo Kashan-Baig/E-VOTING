@@ -23,6 +23,18 @@
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>8</number>
+    </property>
+    <property name="topMargin">
+     <number>30</number>
+    </property>
+    <property name="rightMargin">
+     <number>20</number>
+    </property>
+    <property name="horizontalSpacing">
+     <number>19</number>
+    </property>
     <item row="0" column="0">
      <widget class="QPushButton" name="addCandidateButton">
       <property name="minimumSize">

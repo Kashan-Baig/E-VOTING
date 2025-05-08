@@ -10,8 +10,9 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);
 
+    ui->setupUi(this);
+    this->setMinimumSize(700, 550);
     // Set application-wide style for QMessageBox
     qApp->setStyleSheet(
         "QMessageBox {"

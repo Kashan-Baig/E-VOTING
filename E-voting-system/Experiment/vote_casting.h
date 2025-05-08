@@ -20,7 +20,6 @@ private:
     Ui::Vote_Casting *ui;
     QButtonGroup *buttonGroup;
 private slots:
-    void submitVote();
 };
 
 #endif // VOTE_CASTING_H

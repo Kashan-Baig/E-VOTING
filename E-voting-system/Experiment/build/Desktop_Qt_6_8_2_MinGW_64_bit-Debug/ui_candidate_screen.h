@@ -44,7 +44,8 @@ public:
         gridLayoutWidget->setGeometry(QRect(0, 0, 691, 111));
         gridLayout = new QGridLayout(gridLayoutWidget);
         gridLayout->setObjectName("gridLayout");
-        gridLayout->setContentsMargins(0, 0, 0, 0);
+        gridLayout->setHorizontalSpacing(19);
+        gridLayout->setContentsMargins(8, 30, 20, 0);
         addCandidateButton = new QPushButton(gridLayoutWidget);
         addCandidateButton->setObjectName("addCandidateButton");
         addCandidateButton->setMinimumSize(QSize(200, 0));

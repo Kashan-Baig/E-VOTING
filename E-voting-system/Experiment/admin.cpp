@@ -9,6 +9,7 @@ admin::admin(QWidget *parent)
     , ui(new Ui::admin)
 {
     ui->setupUi(this);
+    this->setMinimumSize(600, 400);
 }
 
 admin::~admin()

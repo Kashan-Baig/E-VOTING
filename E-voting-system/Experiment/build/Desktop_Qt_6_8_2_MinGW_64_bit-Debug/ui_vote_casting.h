@@ -61,7 +61,7 @@ public:
         scrollArea->setWidgetResizable(true);
         allCandidateContents = new QWidget();
         allCandidateContents->setObjectName("allCandidateContents");
-        allCandidateContents->setGeometry(QRect(0, 0, 658, 260));
+        allCandidateContents->setGeometry(QRect(0, 0, 658, 245));
         verticalLayout = new QVBoxLayout(allCandidateContents);
         verticalLayout->setObjectName("verticalLayout");
         scrollArea->setWidget(allCandidateContents);
@@ -70,6 +70,15 @@ public:
 
         submitButton = new QPushButton(widget);
         submitButton->setObjectName("submitButton");
+        submitButton->setStyleSheet(QString::fromUtf8(" background-color: rgb(26, 62, 140);\n"
+"    color: white;\n"
+"    border: none;\n"
+"    border-radius: 6px;\n"
+"    padding: 10px 20px;\n"
+"    margin: 0 5px;\n"
+"    font-size: 14px;\n"
+"    font-weight: 600;\n"
+"    min-width: 120px;"));
 
         verticalLayout_2->addWidget(submitButton);
 

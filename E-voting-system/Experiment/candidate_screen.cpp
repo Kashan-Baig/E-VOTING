@@ -10,6 +10,7 @@ Candidate_screen::Candidate_screen(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Candidate_screen)
 {
+    this->setMinimumSize(700, 550);
     ui->setupUi(this);
 
     // STEP 1: Get the list of candidates from database

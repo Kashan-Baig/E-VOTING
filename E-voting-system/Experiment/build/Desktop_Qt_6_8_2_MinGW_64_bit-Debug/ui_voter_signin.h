@@ -98,7 +98,11 @@ public:
 ""
                         "    border: 1px solid #e9ecef;\n"
 "    margin: 15px 0;\n"
-"}"));
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: #0d2b5e;  /* Darker blue */\n"
+"}\n"
+""));
         verticalLayout_2 = new QVBoxLayout(signwind);
         verticalLayout_2->setObjectName("verticalLayout_2");
         verticalLayout_2->setContentsMargins(-1, -1, 8, -1);

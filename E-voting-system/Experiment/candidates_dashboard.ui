@@ -186,6 +186,12 @@
      </item>
      <item row="1" column="1">
       <widget class="QLabel" name="total_candidates">
+       <property name="styleSheet">
+        <string notr="true">   font-size: 13px;
+    font-weight: 650;
+    color: #444444;
+    margin-bottom: 5px;</string>
+       </property>
        <property name="text">
         <string>TextLabel</string>
        </property>
@@ -215,6 +221,12 @@
      </item>
      <item row="2" column="1">
       <widget class="QLabel" name="total_voters">
+       <property name="styleSheet">
+        <string notr="true">   font-size: 13px;
+    font-weight: 650;
+    color: #444444;
+    margin-bottom: 5px;</string>
+       </property>
        <property name="text">
         <string>TextLabel</string>
        </property>
@@ -244,6 +256,12 @@
      </item>
      <item row="3" column="1">
       <widget class="QLabel" name="total_votes_casted">
+       <property name="styleSheet">
+        <string notr="true">   font-size: 13px;
+    font-weight: 650;
+    color: #444444;
+    margin-bottom: 5px;</string>
+       </property>
        <property name="text">
         <string>TextLabel</string>
        </property>
@@ -333,6 +351,12 @@
     <layout class="QGridLayout" name="gridLayout">
      <item row="3" column="0">
       <widget class="QLabel" name="id_2">
+       <property name="styleSheet">
+        <string notr="true">   font-size: 13px;
+    font-weight: 800;
+    color: #444444;
+    margin-bottom: 5px;</string>
+       </property>
        <property name="text">
         <string>TextLabel</string>
        </property>
@@ -343,6 +367,12 @@
      </item>
      <item row="2" column="3">
       <widget class="QLabel" name="bio_1">
+       <property name="styleSheet">
+        <string notr="true">   font-size: 13px;
+    font-weight: 600;
+    color: #444444;
+    margin-bottom: 5px;</string>
+       </property>
        <property name="text">
         <string>TextLabel</string>
        </property>
@@ -381,6 +411,12 @@
      </item>
      <item row="2" column="2">
       <widget class="QLabel" name="party_1">
+       <property name="styleSheet">
+        <string notr="true">   font-size: 13px;
+    font-weight: 600;
+    color: #444444;
+    margin-bottom: 5px;</string>
+       </property>
        <property name="text">
         <string>TextLabel</string>
        </property>
@@ -431,6 +467,12 @@
      </item>
      <item row="3" column="3">
       <widget class="QLabel" name="bio_2">
+       <property name="styleSheet">
+        <string notr="true">   font-size: 13px;
+    font-weight: 600;
+    color: #444444;
+    margin-bottom: 5px;</string>
+       </property>
        <property name="text">
         <string>TextLabel</string>
        </property>
@@ -441,6 +483,12 @@
      </item>
      <item row="2" column="0">
       <widget class="QLabel" name="id_1">
+       <property name="styleSheet">
+        <string notr="true">   font-size: 13px;
+    font-weight: 800;
+    color: #444444;
+    margin-bottom: 5px;</string>
+       </property>
        <property name="text">
         <string>TextLabel</string>
        </property>
@@ -451,6 +499,12 @@
      </item>
      <item row="2" column="1">
       <widget class="QLabel" name="name_1">
+       <property name="styleSheet">
+        <string notr="true">   font-size: 13px;
+    font-weight: 600;
+    color: #444444;
+    margin-bottom: 5px;</string>
+       </property>
        <property name="text">
         <string>TextLabel</string>
        </property>
@@ -461,6 +515,12 @@
      </item>
      <item row="3" column="2">
       <widget class="QLabel" name="party_2">
+       <property name="styleSheet">
+        <string notr="true">   font-size: 13px;
+    font-weight: 600;
+    color: #444444;
+    margin-bottom: 5px;</string>
+       </property>
        <property name="text">
         <string>TextLabel</string>
        </property>
@@ -499,6 +559,12 @@
      </item>
      <item row="3" column="1">
       <widget class="QLabel" name="name_2">
+       <property name="styleSheet">
+        <string notr="true">   font-size: 13px;
+    font-weight: 600;
+    color: #444444;
+    margin-bottom: 5px;</string>
+       </property>
        <property name="text">
         <string>TextLabel</string>
        </property>

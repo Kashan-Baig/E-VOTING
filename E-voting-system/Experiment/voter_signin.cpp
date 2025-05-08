@@ -11,6 +11,7 @@ signwind::signwind(QWidget *parent)
     , ui(new Ui::signwind)
 {
     ui->setupUi(this);
+    this->setMinimumSize(700, 680);
 }
 
 signwind::~signwind()
@@ -46,7 +47,7 @@ void signwind::on_createacc_btn_clicked()
     if (Database::insertUser(name, pass,cnic,date,false)) {
         QMessageBox::information(this, "Success", "Account created successfully!");
         hide();
-        againlog = new MainWindow(this);
+        MainWindow* againlog = new MainWindow();
         againlog->show();
     } else {
         QMessageBox::critical(this, "Error", "Username already exists or could not create account.");

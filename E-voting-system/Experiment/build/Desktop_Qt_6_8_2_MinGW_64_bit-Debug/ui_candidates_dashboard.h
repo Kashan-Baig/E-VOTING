@@ -168,6 +168,10 @@ public:
 
         total_candidates = new QLabel(candidates_dashboard);
         total_candidates->setObjectName("total_candidates");
+        total_candidates->setStyleSheet(QString::fromUtf8("   font-size: 13px;\n"
+"    font-weight: 650;\n"
+"    color: #444444;\n"
+"    margin-bottom: 5px;"));
 
         gridLayout_2->addWidget(total_candidates, 1, 1, 1, 1);
 
@@ -182,6 +186,10 @@ public:
 
         total_voters = new QLabel(candidates_dashboard);
         total_voters->setObjectName("total_voters");
+        total_voters->setStyleSheet(QString::fromUtf8("   font-size: 13px;\n"
+"    font-weight: 650;\n"
+"    color: #444444;\n"
+"    margin-bottom: 5px;"));
 
         gridLayout_2->addWidget(total_voters, 2, 1, 1, 1);
 
@@ -196,6 +204,10 @@ public:
 
         total_votes_casted = new QLabel(candidates_dashboard);
         total_votes_casted->setObjectName("total_votes_casted");
+        total_votes_casted->setStyleSheet(QString::fromUtf8("   font-size: 13px;\n"
+"    font-weight: 650;\n"
+"    color: #444444;\n"
+"    margin-bottom: 5px;"));
 
         gridLayout_2->addWidget(total_votes_casted, 3, 1, 1, 1);
 
@@ -235,12 +247,20 @@ public:
         gridLayout->setObjectName("gridLayout");
         id_2 = new QLabel(candidates_dashboard);
         id_2->setObjectName("id_2");
+        id_2->setStyleSheet(QString::fromUtf8("   font-size: 13px;\n"
+"    font-weight: 800;\n"
+"    color: #444444;\n"
+"    margin-bottom: 5px;"));
         id_2->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         gridLayout->addWidget(id_2, 3, 0, 1, 1);
 
         bio_1 = new QLabel(candidates_dashboard);
         bio_1->setObjectName("bio_1");
+        bio_1->setStyleSheet(QString::fromUtf8("   font-size: 13px;\n"
+"    font-weight: 600;\n"
+"    color: #444444;\n"
+"    margin-bottom: 5px;"));
         bio_1->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         gridLayout->addWidget(bio_1, 2, 3, 1, 1);
@@ -261,6 +281,10 @@ public:
 
         party_1 = new QLabel(candidates_dashboard);
         party_1->setObjectName("party_1");
+        party_1->setStyleSheet(QString::fromUtf8("   font-size: 13px;\n"
+"    font-weight: 600;\n"
+"    color: #444444;\n"
+"    margin-bottom: 5px;"));
         party_1->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         gridLayout->addWidget(party_1, 2, 2, 1, 1);
@@ -281,24 +305,40 @@ public:
 
         bio_2 = new QLabel(candidates_dashboard);
         bio_2->setObjectName("bio_2");
+        bio_2->setStyleSheet(QString::fromUtf8("   font-size: 13px;\n"
+"    font-weight: 600;\n"
+"    color: #444444;\n"
+"    margin-bottom: 5px;"));
         bio_2->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         gridLayout->addWidget(bio_2, 3, 3, 1, 1);
 
         id_1 = new QLabel(candidates_dashboard);
         id_1->setObjectName("id_1");
+        id_1->setStyleSheet(QString::fromUtf8("   font-size: 13px;\n"
+"    font-weight: 800;\n"
+"    color: #444444;\n"
+"    margin-bottom: 5px;"));
         id_1->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         gridLayout->addWidget(id_1, 2, 0, 1, 1);
 
         name_1 = new QLabel(candidates_dashboard);
         name_1->setObjectName("name_1");
+        name_1->setStyleSheet(QString::fromUtf8("   font-size: 13px;\n"
+"    font-weight: 600;\n"
+"    color: #444444;\n"
+"    margin-bottom: 5px;"));
         name_1->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         gridLayout->addWidget(name_1, 2, 1, 1, 1);
 
         party_2 = new QLabel(candidates_dashboard);
         party_2->setObjectName("party_2");
+        party_2->setStyleSheet(QString::fromUtf8("   font-size: 13px;\n"
+"    font-weight: 600;\n"
+"    color: #444444;\n"
+"    margin-bottom: 5px;"));
         party_2->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         gridLayout->addWidget(party_2, 3, 2, 1, 1);
@@ -315,6 +355,10 @@ public:
 
         name_2 = new QLabel(candidates_dashboard);
         name_2->setObjectName("name_2");
+        name_2->setStyleSheet(QString::fromUtf8("   font-size: 13px;\n"
+"    font-weight: 600;\n"
+"    color: #444444;\n"
+"    margin-bottom: 5px;"));
         name_2->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         gridLayout->addWidget(name_2, 3, 1, 1, 1);

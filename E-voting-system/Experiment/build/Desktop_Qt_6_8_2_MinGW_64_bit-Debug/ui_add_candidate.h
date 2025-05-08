@@ -107,7 +107,12 @@ public:
         nameField = new QLineEdit(Candidate);
         nameField->setObjectName("nameField");
         nameField->setMaximumSize(QSize(464, 16777215));
-        nameField->setStyleSheet(QString::fromUtf8(""));
+        nameField->setStyleSheet(QString::fromUtf8("    background: white;\n"
+"    border: 1px solid #ddd;\n"
+"    border-radius: 5px;\n"
+"    padding: 6px;\n"
+"    margin: 0px 0;\n"
+"    min-width: 150px;"));
 
         horizontalLayout_2->addWidget(nameField);
 
@@ -150,6 +155,7 @@ public:
         AGE_NO->addItem(QString());
         AGE_NO->setObjectName("AGE_NO");
         AGE_NO->setMaximumSize(QSize(80, 30));
+        AGE_NO->setStyleSheet(QString::fromUtf8("background-color: rgb(26, 62, 140);"));
 
         gridLayout->addWidget(AGE_NO, 0, 4, 1, 1);
 
@@ -197,6 +203,12 @@ public:
 
         ageField = new QSpinBox(Candidate);
         ageField->setObjectName("ageField");
+        ageField->setStyleSheet(QString::fromUtf8("    background: white;\n"
+"    border: 1px solid #ddd;\n"
+"    border-radius: 5px;\n"
+"    padding: 6px;\n"
+"    margin: 0px 0;\n"
+"    min-width: 150px;"));
 
         gridLayout->addWidget(ageField, 0, 2, 1, 1);
 
@@ -228,8 +240,14 @@ public:
 
         bioFiled = new QTextEdit(Candidate);
         bioFiled->setObjectName("bioFiled");
-        bioFiled->setMinimumSize(QSize(0, 50));
+        bioFiled->setMinimumSize(QSize(164, 50));
         bioFiled->setMaximumSize(QSize(16777215, 50));
+        bioFiled->setStyleSheet(QString::fromUtf8("    background: white;\n"
+"    border: 1px solid #ddd;\n"
+"    border-radius: 5px;\n"
+"    padding: 6px;\n"
+"    margin: 0px 0;\n"
+"    min-width: 150px;"));
 
         horizontalLayout_6->addWidget(bioFiled);
 
