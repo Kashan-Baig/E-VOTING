@@ -21,6 +21,7 @@ private slots:
     void on_Votenow_btn_clicked();
 
 private:
+    QString userCNIC;  // Store the logged-in user's CNIC
     Ui::Login *ui;
     void loadVoterInfo(const QString &cnic); // 👈 function to load user info
 };

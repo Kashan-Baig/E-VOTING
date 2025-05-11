@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Candidate</class>
+ <widget class="QDialog" name="Candidate">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>679</width>
+    <height>540</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>100</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Candidate Page</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="addcandidate">
+       <property name="font">
+        <font>
+         <pointsize>-1</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"> font-size: 20px;
+    font-weight: bold;
+    color: #1a3e8c;
+    margin-bottom: 10px;</string>
+       </property>
+       <property name="text">
+        <string>ADD CANDIDATE</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="Line" name="line">
+     <property name="styleSheet">
+      <string notr="true">color:black;
+</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Orientation::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>8</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="fullname">
+       <property name="maximumSize">
+        <size>
+         <width>292</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>-1</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">   font-size: 13px;
+    font-weight: 700;
+    color: rgb(26, 62, 140);
+</string>
+       </property>
+       <property name="text">
+        <string>FullName:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+       </property>
+       <property name="margin">
+        <number>8</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="nameField">
+       <property name="maximumSize">
+        <size>
+         <width>464</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 6px;
+    margin: 0px 0;
+    min-width: 150px;</string>
+       </property>
+       <property name="placeholderText">
+        <string>Enter your name</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <property name="leftMargin">
+      <number>9</number>
+     </property>
+     <property name="rightMargin">
+      <number>8</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="font">
+        <font>
+         <pointsize>-1</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">   font-size: 13px;
+    font-weight: 700;
+    color: rgb(26, 62, 140);
+</string>
+       </property>
+       <property name="text">
+        <string>Parties:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="partyDropDown">
+       <property name="maximumSize">
+        <size>
+         <width>60</width>
+         <height>30</height>
+        </size>
+       </property>
+       <item>
+        <property name="text">
+         <string>Pak-Muslim league N</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Pakistan tehreek-e-Insaaf</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Pakistan People's Party</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>tehreek-e-labbaik</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Jamat-e-Islami</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QGridLayout" name="gridLayout">
+     <property name="leftMargin">
+      <number>9</number>
+     </property>
+     <property name="rightMargin">
+      <number>8</number>
+     </property>
+     <item row="0" column="4">
+      <widget class="QComboBox" name="AGE_NO">
+       <property name="maximumSize">
+        <size>
+         <width>80</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(26, 62, 140);</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>MALE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>FEMALE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>INTERSEX</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="1" column="1" colspan="4">
+      <widget class="QLabel" name="add_pictureLabel">
+       <property name="styleSheet">
+        <string notr="true">   font-size: 13px;
+    font-weight: 700;
+    color: rgb(26, 62, 140);
+</string>
+       </property>
+       <property name="text">
+        <string>Add Candidate Picture</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1" colspan="4">
+      <widget class="QPushButton" name="pushButton">
+       <property name="font">
+        <font>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">/* Normal + hover + pressed directly together */
+#pushButton {
+    background-color: #1a3e8c;   /* Blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 15px 10px;
+    min-width: 100px;
+}
+
+/* Hover effect */
+#pushButton:hover {
+    background-color: #303f9f;   /* Darker blue on hover */
+    color: white;
+}
+
+/* Pressed effect */
+#pushButton:pressed {
+    background-color: #0d47a1;   /* Even darker blue when pressed */
+}
+
+   </string>
+       </property>
+       <property name="text">
+        <string>Add Picture</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="gender">
+       <property name="styleSheet">
+        <string notr="true">   font-size: 13px;
+    font-weight: 700;
+    color: rgb(26, 62, 140);
+
+</string>
+       </property>
+       <property name="text">
+        <string>AGE:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLabel" name="gender_name">
+       <property name="styleSheet">
+        <string notr="true">   font-size: 13px;
+    font-weight: 700;
+    color: rgb(26, 62, 140);
+</string>
+       </property>
+       <property name="text">
+        <string>Gender:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QSpinBox" name="ageField">
+       <property name="styleSheet">
+        <string notr="true">    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 6px;
+    margin: 0px 0;
+    min-width: 150px;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1" colspan="4" alignment="Qt::AlignmentFlag::AlignHCenter">
+      <widget class="QLabel" name="picture_label">
+       <property name="minimumSize">
+        <size>
+         <width>150</width>
+         <height>150</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>150</width>
+         <height>150</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_6">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <property name="sizeConstraint">
+      <enum>QLayout::SizeConstraint::SetMinimumSize</enum>
+     </property>
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="BIO">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">   font-size: 13px;
+    font-weight: 700;
+    color: rgb(26, 62, 140);
+</string>
+       </property>
+       <property name="text">
+        <string>BIO:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTextEdit" name="bioFiled">
+       <property name="minimumSize">
+        <size>
+         <width>164</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 6px;
+    margin: 0px 0;
+    min-width: 150px;</string>
+       </property>
+       <property name="placeholderText">
+        <string>Add your bio briefly</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_7">
+     <property name="leftMargin">
+      <number>9</number>
+     </property>
+     <property name="rightMargin">
+      <number>8</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="save">
+       <property name="font">
+        <font>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#save {
+    background-color: #1a3e8c;   /* Blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 15px 10px;
+    min-width: 100px;
+}
+
+/* Hover effect */
+#save:hover {
+    background-color: #303f9f;   /* Darker blue on hover */
+    color: white;
+}
+
+/* Pressed effect */
+#save:pressed {
+    background-color: #0d47a1;   /* Even darker blue when pressed */
+}
+
+   
+   </string>
+       </property>
+       <property name="text">
+        <string>Save</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="cancel">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(229, 62, 62);
+ color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    padding:5px;
+   </string>
+       </property>
+       <property name="text">
+        <string>&lt; Back</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

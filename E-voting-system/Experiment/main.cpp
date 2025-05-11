@@ -43,11 +43,13 @@ int main(int argc, char *argv[])
 
     // Your custom absolute path (Windows-safe with / slashes)
     QString dbPath = "C:/Users/Adnan/Desktop/E-vote2/E-voting-system/database/e-voting.db";
+
+
     qDebug() << "Database path:" << dbPath;
 
     // Ensure the 'database' folder exists (optional safety)
-    QDir dbDir("C:/Users/Adnan/Desktop/E-vote2/E-voting-system/database");
-    if (!dbDir.exists()) {
+
+    if (!QFile::exists(dbPath)) {
         QMessageBox::critical(nullptr, "Database Error",
                               "Database folder does not exist!\n\nPlease create:\nC:/Users/Adnan/Desktop/E-vote2/E-voting-system/database");
         return -1;

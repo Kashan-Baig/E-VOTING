@@ -5,7 +5,8 @@
 #include "vote_casting.h"
 
 Login::Login(const QString &cnic, QWidget *parent)
-    : QDialog(parent)
+    : QDialog(parent),
+     userCNIC(cnic)
     , ui(new Ui::Login)
 {
     ui->setupUi(this);
@@ -50,7 +51,7 @@ void Login::on_Logout_btn_clicked()
 void Login::on_Votenow_btn_clicked()
 {
     hide();
-    Vote_Casting *v = new Vote_Casting();
+    Vote_Casting *v = new Vote_Casting(userCNIC);
     v->show();
 }
 

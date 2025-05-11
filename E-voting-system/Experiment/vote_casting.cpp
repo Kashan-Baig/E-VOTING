@@ -2,11 +2,14 @@
 #include "ui_vote_casting.h"
 #include "database.h"
 #include "qlabel.h"
+#include "QMessageBox"
 
 
-Vote_Casting::Vote_Casting(QWidget *parent)
+Vote_Casting::Vote_Casting(const QString &cnic ,QWidget *parent )
     : QDialog(parent)
+        , userCNIC(cnic)
     , ui(new Ui::Vote_Casting)
+
 {
     this->setMinimumSize(750, 550);
     ui->setupUi(this);
@@ -30,14 +33,13 @@ Vote_Casting::Vote_Casting(QWidget *parent)
         QString name = candidate["full_name"].toString();
         QString party = candidate["party_name"].toString();
         QString bio = candidate["bio"].toString();
+        int id = candidate["id"].toInt();
         QByteArray photoData = candidate["photo"].toByteArray();
 
         // --- Candidate Row Widget ---
         QWidget *candidateWidget = new QWidget;
         QHBoxLayout *candidateLayout = new QHBoxLayout(candidateWidget);
-        // candidateLayout->setContentsMargins(0, 0, 0, 0);  // NO margin here
-        // candidateLayout->setSpacing(10);  // small space between text & photo
-
+  \
         // --- Apply border to the whole tile (candidateWidget) ---
         candidateWidget->setStyleSheet(
             "border: 1px solid gray; border-radius: 5px; margin-bottom: 8px; padding: 10px;"
@@ -74,6 +76,9 @@ Vote_Casting::Vote_Casting(QWidget *parent)
 
         // --- Add row to main vertical layout ---
         layout->addWidget(candidateWidget);
+
+        candidateWidget->installEventFilter(this);
+        candidateWidget->setProperty("id", id ); // Store CNIC as property
     }
 
 
@@ -81,8 +86,54 @@ Vote_Casting::Vote_Casting(QWidget *parent)
 
     // STEP 4 (Optional): Add stretch to push everything up
     layout->addStretch();
+    connect(ui->submitButton, &QPushButton::clicked, this, [=]() {
+        if (selectedCandidateCNIC.isEmpty()) {
+            QMessageBox::warning(this, "No Selection", "Please select a candidate before submitting.");
+            return;
+        }
+
+        QMessageBox::StandardButton confirm = QMessageBox::question(
+            this,
+            "Confirm Vote",
+            "Are you sure you want to cast your vote for this candidate?",
+            QMessageBox::Yes | QMessageBox::No
+            );
+
+        if (confirm == QMessageBox::Yes) {
+
+            if (Database::castVote(userCNIC, selectedCandidateCNIC)) {
+                QMessageBox::information(this, "Vote Cast", "Your vote has been cast successfully.");
+                // this->close(); // or disable UI
+            } else {
+                QMessageBox::critical(this, "Err    or", "Failed to cast vote. Try again.");
+            }
+        }
+    });
+
 
 }
+bool Vote_Casting::eventFilter(QObject *watched, QEvent *event) {
+    if (event->type() == QEvent::MouseButtonPress) {
+        QWidget *clickedWidget = qobject_cast<QWidget *>(watched);
+        if (clickedWidget && clickedWidget->property("id").isValid()) {
+            // Un-highlight previous selection
+            if (selectedCandidateWidget) {
+                selectedCandidateWidget->setStyleSheet(
+                    "border: 1px solid gray; border-radius: 5px; margin-bottom: 8px; padding: 10px;"
+                    );
+            }
+
+            // Highlight current
+            clickedWidget->setStyleSheet(
+                "border: 2px solid blue; border-radius: 5px; margin-bottom: 8px; padding: 10px;"
+                );
+            selectedCandidateWidget = clickedWidget;
+            selectedCandidateCNIC = clickedWidget->property("id").toString();
+        }
+    }
+    return QObject::eventFilter(watched, event);
+}
+
 
 Vote_Casting::~Vote_Casting()
 {

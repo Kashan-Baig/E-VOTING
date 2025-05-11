@@ -21,6 +21,28 @@ bool Database::initDB(const QString &dbPath) {
     }
 
     qDebug() << "Database connected successfully to:" << dbPath;
+
+    // 🔽 Check and add total_votes column if it doesn't exist
+    QSqlQuery columnCheckQuery(db);
+    columnCheckQuery.exec("PRAGMA table_info(candidates)");
+    bool columnExists = false;
+    while (columnCheckQuery.next()) {
+        if (columnCheckQuery.value(1).toString() == "total_votes") {
+            columnExists = true;
+            break;
+        }
+    }
+
+    if (!columnExists) {
+        QSqlQuery alterQuery(db);
+        if (!alterQuery.exec("ALTER TABLE candidates ADD COLUMN total_votes INTEGER DEFAULT 0")) {
+            qCritical() << "Failed to add total_votes column:" << alterQuery.lastError().text();
+            return false;
+        } else {
+            qDebug() << "Column total_votes added successfully.";
+        }
+    }
+
     return true;
 }
 
@@ -68,7 +90,7 @@ bool Database::insertUser(const QString &username, const QString &password,
 
 int Database::loginUser(const QString &cnic, const QString &password) {
     QSqlQuery query(db);
-    query.prepare("SELECT password, vote_casted FROM users WHERE cnic = :cnic");
+    query.prepare("SELECT password FROM users WHERE cnic = :cnic");
     query.bindValue(":cnic", cnic);
 
     if (!query.exec()) {
@@ -84,25 +106,33 @@ int Database::loginUser(const QString &cnic, const QString &password) {
         return 1; // Wrong password
     }
 
-    if (query.value("vote_casted").toInt() == 1) {
-        return 3; // User already voted
-    }
-
     return 2; // Success
 }
-
-bool Database::setVoteCasted(const QString &cnic) {
+bool Database::castVote(const QString &userCNIC, const QString &candidateId) {
     QSqlQuery query(db);
-    query.prepare("UPDATE users SET vote_casted = 1 WHERE cnic = :cnic");
-    query.bindValue(":cnic", cnic);
+    db.transaction();  // Begin transaction
 
+    // Update the users table (set vote_casted to 1 for the user)
+    query.prepare("UPDATE users SET vote_casted = 1 WHERE cnic = :cnic");
+    query.bindValue(":cnic", userCNIC);
     if (!query.exec()) {
-        qCritical() << "Error updating vote_casted:" << query.lastError().text();
+        db.rollback();
+        qCritical() << "Error updating vote_casted in users table:" << query.lastError().text();
         return false;
     }
-    return query.numRowsAffected() > 0;
-}
 
+    // Update the candidates table (increment total_votes for the selected candidate)
+    query.prepare("UPDATE candidates SET total_votes = total_votes + 1 WHERE id = :id");
+    query.bindValue(":id", candidateId);
+    if (!query.exec()) {
+        db.rollback();
+        qCritical() << "Error updating vote_count in candidates table:" << query.lastError().text();
+        return false;
+    }
+
+    db.commit();  // Commit the transaction
+    return true;
+}
 bool Database::createCandidatesTable() {
     QSqlQuery query(db);
     QString createTableSQL = "CREATE TABLE IF NOT EXISTS candidates ("
@@ -111,7 +141,9 @@ bool Database::createCandidatesTable() {
                              "full_name TEXT NOT NULL, "
                              "party_name TEXT NOT NULL, "
                              "age INTEGER NOT NULL, "
-                             "bio TEXT)";
+                             "bio TEXT, "
+                             "total_votes INTEGER DEFAULT 0"
+                             ")";
 
     if (!query.exec(createTableSQL)) {
         qCritical() << "Error creating candidates table:" << query.lastError().text();
@@ -119,6 +151,7 @@ bool Database::createCandidatesTable() {
     }
     return true;
 }
+
 
 bool Database::insertCandidate(const QByteArray &photoData, const QString &fullName,
                                const QString &partyName, int age, const QString &bio) {
@@ -234,4 +267,14 @@ int Database::getTotalVotesCasted() {
     }
     return query.next() ? query.value(0).toInt() : 0;
 }
+bool Database::deleteCandidate(int candidateID) {
+    QSqlQuery query(db);
+    query.prepare("DELETE FROM candidates WHERE id = :id");
+    query.bindValue(":id", candidateID);
 
+    if (!query.exec()) {
+        qDebug() << "Delete error:" << query.lastError().text();
+        return false;
+    }
+    return true;
+}

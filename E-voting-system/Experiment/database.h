@@ -18,13 +18,14 @@ public:
                            const QString &cnic, const QDate &dob,
                            const bool voteCasted = false);
     static int loginUser(const QString &cnic, const QString &password);
-    static bool setVoteCasted(const QString &cnic);
+    static bool castVote(const QString &userCNIC, const QString &candidateId);
 
     // Candidate operations
     static bool createCandidatesTable();
     static bool insertCandidate(const QByteArray &photoData, const QString &fullName,
                                 const QString &partyName, int age,
                                 const QString &bio);
+    static bool deleteCandidate(int candidateID);
 
     // Statistics
     static int getTotalCandidates();

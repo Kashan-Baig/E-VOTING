@@ -22,6 +22,7 @@ private slots:
 
 private:
     Ui::Candidate_screen *ui;
+    void loadCandidates();
 };
 
 #endif // CANDIDATE_SCREEN_H
