@@ -18,6 +18,8 @@ public:
 private slots:
     void on_voters_btn_clicked();
 
+    void on_cadidates_btn_clicked();
+
 private:
     Ui::candidates_dashboard *ui;
 };

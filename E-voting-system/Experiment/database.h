@@ -36,6 +36,7 @@ public:
     static QList<QVariantMap> getUsersList();
     static QList<QVariantMap> getLatestCandidates(int limit = 2);
     static QList<QVariantMap> getAllCandidates();
+    static QMap<QString, int> calculatePartyVotes();
 
 private:
     static QSqlDatabase db;

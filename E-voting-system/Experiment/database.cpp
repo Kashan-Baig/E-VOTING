@@ -278,3 +278,41 @@ bool Database::deleteCandidate(int candidateID) {
     }
     return true;
 }
+
+QMap<QString, int> Database::calculatePartyVotes() {
+    QMap<QString, int> partyVotes;
+
+    // Predefined parties to ensure they all show up (even if no candidates/votes)
+    QStringList partyList = {
+        "Pak-Muslim league N",
+        "Pakistan tehreek-e-Insaaf",
+        "Pakistan People's Party",
+        "tehreek-e-labbaik",
+        "Jamat-e-Islami"
+    };
+
+    // Initialize all parties with 0 votes
+    for (const QString &party : partyList) {
+        partyVotes[party] = 0;
+    }
+
+    // Query to get party_name and total_votes from candidates table
+    QSqlQuery query(db);
+    if (!query.exec("SELECT party_name, total_votes FROM candidates")) {
+        qCritical() << "Error fetching party votes:" << query.lastError().text();
+        return partyVotes;  // Return zeroed map if query fails
+    }
+
+    // Iterate over candidates and sum votes per party
+    while (query.next()) {
+        QString partyName = query.value("party_name").toString();
+        int votes = query.value("total_votes").toInt();
+
+        // Only sum for known parties (skip typos/mistakes if any)
+        if (partyVotes.contains(partyName)) {
+            partyVotes[partyName] += votes;
+        }
+    }
+    qDebug() << partyVotes;
+    return partyVotes;
+}

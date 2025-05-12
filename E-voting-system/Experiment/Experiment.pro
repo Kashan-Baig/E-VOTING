@@ -1,5 +1,7 @@
 QT += core gui
 QT += sql
+QT += charts
+
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -16,6 +18,7 @@ SOURCES += \
     candidate_screen.cpp \
     candidates_dashboard.cpp \
     database.cpp \
+    graph.cpp \
     main.cpp \
     mainpage.cpp \
     vote_casting.cpp \
@@ -29,6 +32,7 @@ HEADERS += \
     candidate_screen.h \
     candidates_dashboard.h \
     database.h \
+    graph.h \
     mainpage.h \
     vote_casting.h \
     voter_login.h \

@@ -2,6 +2,8 @@
 #include "ui_candidates_dashboard.h"
 #include "candidate_screen.h"
 #include "database.h"
+#include "graph.h"
+
 
 candidates_dashboard::candidates_dashboard(QWidget *parent)
     : QWidget(parent)
@@ -52,5 +54,13 @@ void candidates_dashboard::on_voters_btn_clicked()
     hide();
     Candidate_screen* cand = new Candidate_screen();
     cand->show();
+}
+
+
+void candidates_dashboard::on_cadidates_btn_clicked()
+{
+    hide();
+    graph* chrt = new graph(this);
+    chrt->show();
 }
 

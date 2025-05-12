@@ -95,7 +95,7 @@
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true"> background-color: rgb(26, 62, 140);
+        <string notr="true"> #voters_btn{background-color: rgb(26, 62, 140);
     color: white;
     border: none;
     border-radius: 6px;
@@ -103,7 +103,18 @@
     margin: 0 5px;
     font-size: 14px;
     font-weight: 600;
-    min-width: 120px;</string>
+    min-width: 120px;
+}
+#voters_btn:hover {
+    background-color: #303f9f;   /* Darker blue on hover */
+    color: white;
+}
+
+/* Pressed effect */
+#voters_btn:pressed {
+    background-color: #0d47a1;   /* Even darker blue when pressed */
+}
+   </string>
        </property>
        <property name="text">
         <string>Candidates</string>

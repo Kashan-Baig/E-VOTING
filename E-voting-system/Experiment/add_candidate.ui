@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>679</width>
-    <height>540</height>
+    <height>559</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -237,14 +237,34 @@
      </item>
      <item row="2" column="1" colspan="4">
       <widget class="QPushButton" name="pushButton">
+       <property name="font">
+        <font>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(26, 62, 140);
+        <string notr="true">/* Normal + hover + pressed directly together */
+#pushButton {
+    background-color: #1a3e8c;   /* Blue */
     color: white;
     border: none;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 600;
-    padding:5px;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 15px 10px;
+    min-width: 100px;
+}
+
+/* Hover effect */
+#pushButton:hover {
+    background-color: #303f9f;   /* Darker blue on hover */
+    color: white;
+}
+
+/* Pressed effect */
+#pushButton:pressed {
+    background-color: #0d47a1;   /* Even darker blue when pressed */
+}
+
    </string>
        </property>
        <property name="text">
@@ -393,14 +413,34 @@
      </property>
      <item>
       <widget class="QPushButton" name="save">
+       <property name="font">
+        <font>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(26, 62, 140);
+        <string notr="true">#save {
+    background-color: #1a3e8c;   /* Blue */
     color: white;
     border: none;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 600;
-    padding:5px;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 15px 10px;
+    min-width: 100px;
+}
+
+/* Hover effect */
+#save:hover {
+    background-color: #303f9f;   /* Darker blue on hover */
+    color: white;
+}
+
+/* Pressed effect */
+#save:pressed {
+    background-color: #0d47a1;   /* Even darker blue when pressed */
+}
+
+   
    </string>
        </property>
        <property name="text">
