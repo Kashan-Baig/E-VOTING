@@ -18,7 +18,14 @@ public:
 private slots:
     void on_voters_btn_clicked();
 
-    void on_cadidates_btn_clicked();
+
+
+    void on_candidates_btn_clicked();
+
+    void on_stats_btn_clicked();
+
+
+    void on_logout_clicked();
 
 private:
     Ui::candidates_dashboard *ui;

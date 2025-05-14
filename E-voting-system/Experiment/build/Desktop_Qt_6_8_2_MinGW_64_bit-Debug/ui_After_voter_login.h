@@ -147,6 +147,7 @@ public:
         namelabel = new QLabel(Login);
         namelabel->setObjectName("namelabel");
         QFont font2;
+        font2.setWeight(QFont::Bold);
         namelabel->setFont(font2);
         namelabel->setStyleSheet(QString::fromUtf8("   font-size: 17px;\n"
 "    font-weight: 510;\n"

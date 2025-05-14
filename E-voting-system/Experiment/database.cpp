@@ -256,6 +256,7 @@ int Database::getTotalUsers() {
         qCritical() << "Error counting users:" << query.lastError().text();
         return -1;
     }
+    qDebug() << query.value(0).toInt() ;
     return query.next() ? query.value(0).toInt() : 0;
 }
 

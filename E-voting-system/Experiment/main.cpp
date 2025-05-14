@@ -8,6 +8,7 @@
 #include "ui_mainpage.h"
 #include <QDir>
 
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -41,8 +42,9 @@ int main(int argc, char *argv[])
         "}"
         );
 
-    // Your custom absolute path (Windows-safe with / slashes)
+    // Your custom absolute path (Windows-safe with / sl    ashes)
     QString dbPath = "C:/Users/Adnan/Desktop/E-vote2/E-voting-system/database/e-voting.db";
+
 
 
     qDebug() << "Database path:" << dbPath;
@@ -70,6 +72,7 @@ int main(int argc, char *argv[])
     }
 
     Mainpage w;
+
     w.show();
     return a.exec();
 }

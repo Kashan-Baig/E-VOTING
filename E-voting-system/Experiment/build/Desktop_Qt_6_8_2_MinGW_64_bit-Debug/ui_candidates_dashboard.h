@@ -27,10 +27,10 @@ public:
     QHBoxLayout *horizontalLayout;
     QLabel *Title;
     QHBoxLayout *horizontalLayout_2;
-    QPushButton *dashboard_btn;
     QPushButton *voters_btn;
-    QPushButton *cadidates_btn;
-    QPushButton *result_btn;
+    QPushButton *candidates_btn;
+    QPushButton *stats_btn;
+    QPushButton *logout;
     QGridLayout *gridLayout_2;
     QLabel *candidates;
     QLabel *total_candidates;
@@ -86,13 +86,13 @@ public:
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName("horizontalLayout_2");
-        dashboard_btn = new QPushButton(candidates_dashboard);
-        dashboard_btn->setObjectName("dashboard_btn");
+        voters_btn = new QPushButton(candidates_dashboard);
+        voters_btn->setObjectName("voters_btn");
         QFont font1;
         font1.setWeight(QFont::DemiBold);
-        dashboard_btn->setFont(font1);
-        dashboard_btn->setAutoFillBackground(false);
-        dashboard_btn->setStyleSheet(QString::fromUtf8(" background-color: rgb(26, 62, 140);\n"
+        voters_btn->setFont(font1);
+        voters_btn->setAutoFillBackground(false);
+        voters_btn->setStyleSheet(QString::fromUtf8(" background-color: rgb(26, 62, 140);\n"
 "    color: white;\n"
 "    border: none;\n"
 "    border-radius: 6px;\n"
@@ -102,27 +102,12 @@ public:
 "    font-weight: 600;\n"
 "    min-width: 120px;;"));
 
-        horizontalLayout_2->addWidget(dashboard_btn);
-
-        voters_btn = new QPushButton(candidates_dashboard);
-        voters_btn->setObjectName("voters_btn");
-        voters_btn->setFont(font1);
-        voters_btn->setStyleSheet(QString::fromUtf8(" background-color: rgb(26, 62, 140);\n"
-"    color: white;\n"
-"    border: none;\n"
-"    border-radius: 6px;\n"
-"    padding: 10px 20px;\n"
-"    margin: 0 5px;\n"
-"    font-size: 14px;\n"
-"    font-weight: 600;\n"
-"    min-width: 120px;"));
-
         horizontalLayout_2->addWidget(voters_btn);
 
-        cadidates_btn = new QPushButton(candidates_dashboard);
-        cadidates_btn->setObjectName("cadidates_btn");
-        cadidates_btn->setFont(font1);
-        cadidates_btn->setStyleSheet(QString::fromUtf8(" background-color: rgb(26, 62, 140);\n"
+        candidates_btn = new QPushButton(candidates_dashboard);
+        candidates_btn->setObjectName("candidates_btn");
+        candidates_btn->setFont(font1);
+        candidates_btn->setStyleSheet(QString::fromUtf8(" background-color: rgb(26, 62, 140);\n"
 "    color: white;\n"
 "    border: none;\n"
 "    border-radius: 6px;\n"
@@ -132,12 +117,12 @@ public:
 "    font-weight: 600;\n"
 "    min-width: 120px;"));
 
-        horizontalLayout_2->addWidget(cadidates_btn);
+        horizontalLayout_2->addWidget(candidates_btn);
 
-        result_btn = new QPushButton(candidates_dashboard);
-        result_btn->setObjectName("result_btn");
-        result_btn->setFont(font1);
-        result_btn->setStyleSheet(QString::fromUtf8(" background-color: rgb(26, 62, 140);\n"
+        stats_btn = new QPushButton(candidates_dashboard);
+        stats_btn->setObjectName("stats_btn");
+        stats_btn->setFont(font1);
+        stats_btn->setStyleSheet(QString::fromUtf8(" background-color: rgb(26, 62, 140);\n"
 "    color: white;\n"
 "    border: none;\n"
 "    border-radius: 6px;\n"
@@ -147,7 +132,21 @@ public:
 "    font-weight: 600;\n"
 "    min-width: 120px;"));
 
-        horizontalLayout_2->addWidget(result_btn);
+        horizontalLayout_2->addWidget(stats_btn);
+
+        logout = new QPushButton(candidates_dashboard);
+        logout->setObjectName("logout");
+        logout->setStyleSheet(QString::fromUtf8(" background-color: rgb(229, 62, 62);\n"
+"    color: white;\n"
+"    border: none;\n"
+"    border-radius: 6px;\n"
+"    padding: 10px 20px;\n"
+"    margin: 0 5px;\n"
+"    font-size: 14px;\n"
+"    font-weight: 600;\n"
+"    min-width: 120px;"));
+
+        horizontalLayout_2->addWidget(logout);
 
 
         verticalLayout_2->addLayout(horizontalLayout_2);
@@ -260,7 +259,11 @@ public:
         bio_1->setStyleSheet(QString::fromUtf8("   font-size: 13px;\n"
 "    font-weight: 600;\n"
 "    color: #444444;\n"
-"    margin-bottom: 5px;"));
+"    margin-bottom: 5px;\n"
+"	padding-left: 10px;  \n"
+"	padding-right: 10px;\n"
+"\n"
+""));
         bio_1->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         gridLayout->addWidget(bio_1, 2, 3, 1, 1);
@@ -308,7 +311,10 @@ public:
         bio_2->setStyleSheet(QString::fromUtf8("   font-size: 13px;\n"
 "    font-weight: 600;\n"
 "    color: #444444;\n"
-"    margin-bottom: 5px;"));
+"    margin-bottom: 5px;\n"
+"	padding-left: 10px;  \n"
+"	padding-right: 10px;\n"
+""));
         bio_2->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         gridLayout->addWidget(bio_2, 3, 3, 1, 1);
@@ -385,10 +391,10 @@ public:
     {
         candidates_dashboard->setWindowTitle(QCoreApplication::translate("candidates_dashboard", "Form", nullptr));
         Title->setText(QCoreApplication::translate("candidates_dashboard", "ELECTION ADMIN PORTAL", nullptr));
-        dashboard_btn->setText(QCoreApplication::translate("candidates_dashboard", "Dashboard", nullptr));
-        voters_btn->setText(QCoreApplication::translate("candidates_dashboard", "Candidates", nullptr));
-        cadidates_btn->setText(QCoreApplication::translate("candidates_dashboard", "Voters", nullptr));
-        result_btn->setText(QCoreApplication::translate("candidates_dashboard", "Results", nullptr));
+        voters_btn->setText(QCoreApplication::translate("candidates_dashboard", "Voters", nullptr));
+        candidates_btn->setText(QCoreApplication::translate("candidates_dashboard", "Candidates", nullptr));
+        stats_btn->setText(QCoreApplication::translate("candidates_dashboard", "Statistics", nullptr));
+        logout->setText(QCoreApplication::translate("candidates_dashboard", "Logout", nullptr));
         candidates->setText(QCoreApplication::translate("candidates_dashboard", "Candidates :", nullptr));
         total_candidates->setText(QCoreApplication::translate("candidates_dashboard", "TextLabel", nullptr));
         vters->setText(QCoreApplication::translate("candidates_dashboard", "Voters :", nullptr));

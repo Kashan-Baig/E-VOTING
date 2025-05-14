@@ -1,9 +1,11 @@
 release/After_voter_login.o
 release/add_candidate.o
 release/admin.o
-release/candidate_screen.o
+release/all_candidate_screen.o
+release/all_voters_screen.o
 release/candidates_dashboard.o
 release/database.o
+release/graph.o
 release/main.o
 release/mainpage.o
 release/vote_casting.o
@@ -13,8 +15,10 @@ release/qrc_image.o
 release/moc_After_voter_login.o
 release/moc_add_candidate.o
 release/moc_admin.o
-release/moc_candidate_screen.o
+release/moc_all_candidate_screen.o
+release/moc_all_voters_screen.o
 release/moc_candidates_dashboard.o
+release/moc_graph.o
 release/moc_mainpage.o
 release/moc_vote_casting.o
 release/moc_voter_login.o

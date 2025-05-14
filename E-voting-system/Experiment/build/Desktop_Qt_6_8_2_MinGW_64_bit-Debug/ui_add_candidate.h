@@ -57,7 +57,7 @@ public:
     {
         if (Candidate->objectName().isEmpty())
             Candidate->setObjectName("Candidate");
-        Candidate->resize(679, 540);
+        Candidate->resize(679, 559);
         Candidate->setMinimumSize(QSize(100, 0));
         verticalLayout = new QVBoxLayout(Candidate);
         verticalLayout->setObjectName("verticalLayout");
@@ -171,13 +171,29 @@ public:
 
         pushButton = new QPushButton(Candidate);
         pushButton->setObjectName("pushButton");
-        pushButton->setStyleSheet(QString::fromUtf8("background-color: rgb(26, 62, 140);\n"
+        pushButton->setFont(font);
+        pushButton->setStyleSheet(QString::fromUtf8("/* Normal + hover + pressed directly together */\n"
+"#pushButton {\n"
+"    background-color: #1a3e8c;   /* Blue */\n"
 "    color: white;\n"
 "    border: none;\n"
-"    border-radius: 6px;\n"
-"    font-size: 14px;\n"
-"    font-weight: 600;\n"
-"    padding:5px;\n"
+"    border-radius: 5px;\n"
+"    padding: 10px 20px;\n"
+"    margin: 15px 10px;\n"
+"    min-width: 100px;\n"
+"}\n"
+"\n"
+"/* Hover effect */\n"
+"#pushButton:hover {\n"
+"    background-color: #303f9f;   /* Darker blue on hover */\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"/* Pressed effect */\n"
+"#pushButton:pressed {\n"
+"    background-color: #0d47a1;   /* Even darker blue when pressed */\n"
+"}\n"
+"\n"
 "   "));
 
         gridLayout->addWidget(pushButton, 2, 1, 1, 4);
@@ -259,13 +275,29 @@ public:
         horizontalLayout_7->setContentsMargins(9, -1, 8, -1);
         save = new QPushButton(Candidate);
         save->setObjectName("save");
-        save->setStyleSheet(QString::fromUtf8("background-color: rgb(26, 62, 140);\n"
+        save->setFont(font);
+        save->setStyleSheet(QString::fromUtf8("#save {\n"
+"    background-color: #1a3e8c;   /* Blue */\n"
 "    color: white;\n"
 "    border: none;\n"
-"    border-radius: 6px;\n"
-"    font-size: 14px;\n"
-"    font-weight: 600;\n"
-"    padding:5px;\n"
+"    border-radius: 5px;\n"
+"    padding: 10px 20px;\n"
+"    margin: 15px 10px;\n"
+"    min-width: 100px;\n"
+"}\n"
+"\n"
+"/* Hover effect */\n"
+"#save:hover {\n"
+"    background-color: #303f9f;   /* Darker blue on hover */\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"/* Pressed effect */\n"
+"#save:pressed {\n"
+"    background-color: #0d47a1;   /* Even darker blue when pressed */\n"
+"}\n"
+"\n"
+"   \n"
 "   "));
 
         horizontalLayout_7->addWidget(save);

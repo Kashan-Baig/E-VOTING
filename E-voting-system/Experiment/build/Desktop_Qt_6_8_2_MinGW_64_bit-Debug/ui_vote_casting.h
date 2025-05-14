@@ -70,7 +70,8 @@ public:
 
         submitButton = new QPushButton(widget);
         submitButton->setObjectName("submitButton");
-        submitButton->setStyleSheet(QString::fromUtf8(" background-color: rgb(26, 62, 140);\n"
+        submitButton->setStyleSheet(QString::fromUtf8("#submitButton{\n"
+" background-color: rgb(26, 62, 140);\n"
 "    color: white;\n"
 "    border: none;\n"
 "    border-radius: 6px;\n"
@@ -78,7 +79,17 @@ public:
 "    margin: 0 5px;\n"
 "    font-size: 14px;\n"
 "    font-weight: 600;\n"
-"    min-width: 120px;"));
+"    min-width: 120px;\n"
+"}\n"
+"#submitButton:hover {\n"
+"    background-color: #303f9f;   /* Darker blue on hover */\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"/* Pressed effect */\n"
+"#submitButton:pressed {\n"
+"    background-color: #0d47a1;   /* Even darker blue when pressed */\n"
+"}"));
 
         verticalLayout_2->addWidget(submitButton);
 

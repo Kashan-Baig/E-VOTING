@@ -15,7 +15,8 @@ SOURCES += \
     After_voter_login.cpp \
     add_candidate.cpp \
     admin.cpp \
-    candidate_screen.cpp \
+    all_candidate_screen.cpp \
+    all_voters_screen.cpp \
     candidates_dashboard.cpp \
     database.cpp \
     graph.cpp \
@@ -29,7 +30,8 @@ HEADERS += \
     After_voter_login.h \
     add_candidate.h \
     admin.h \
-    candidate_screen.h \
+    all_candidate_screen.h \
+    all_voters_screen.h \
     candidates_dashboard.h \
     database.h \
     graph.h \
@@ -43,7 +45,8 @@ FORMS += \
     Sign_win.ui \
     add_candidate.ui \
     admin.ui \
-    candidate_screen.ui \
+    all_candidate_screen.ui \
+    all_voters_screen.ui \
     candidates_dashboard.ui \
     mainpage.ui \
     vote_casting.ui \

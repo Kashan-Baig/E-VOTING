@@ -5,7 +5,7 @@
 #include <QDebug>
 #include "database.h"
 #include"QMessageBox"
-#include "candidate_screen.h"
+#include "all_candidate_screen.h"
 
 Candidate::Candidate(QWidget *parent)
     : QDialog(parent)

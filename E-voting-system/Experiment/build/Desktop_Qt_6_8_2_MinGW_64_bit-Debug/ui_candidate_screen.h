@@ -38,7 +38,7 @@ public:
     {
         if (Candidate_screen->objectName().isEmpty())
             Candidate_screen->setObjectName("Candidate_screen");
-        Candidate_screen->resize(697, 554);
+        Candidate_screen->resize(709, 587);
         gridLayoutWidget = new QWidget(Candidate_screen);
         gridLayoutWidget->setObjectName("gridLayoutWidget");
         gridLayoutWidget->setGeometry(QRect(0, 0, 691, 111));
@@ -50,13 +50,24 @@ public:
         addCandidateButton->setObjectName("addCandidateButton");
         addCandidateButton->setMinimumSize(QSize(200, 0));
         addCandidateButton->setMaximumSize(QSize(100, 16777215));
-        addCandidateButton->setStyleSheet(QString::fromUtf8("background-color: rgb(26, 62, 140);\n"
+        addCandidateButton->setStyleSheet(QString::fromUtf8("#addCandidateButton{\n"
+"background-color: rgb(26, 62, 140);\n"
 "    color: white;\n"
 "    border: none;\n"
 "    border-radius: 6px;\n"
 "    font-size: 14px;\n"
 "    font-weight: 600;\n"
 "    padding:5px;\n"
+"}\n"
+"#addCandidateButton:hover {\n"
+"    background-color: #303f9f;   /* Darker blue on hover */\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"/* Pressed effect */\n"
+"#addCandidateButton:pressed {\n"
+"    background-color: #0d47a1;   /* Even darker blue when pressed */\n"
+"}\n"
 "   "));
 
         gridLayout->addWidget(addCandidateButton, 0, 0, 1, 1);
@@ -87,11 +98,11 @@ public:
 
         scrollArea = new QScrollArea(Candidate_screen);
         scrollArea->setObjectName("scrollArea");
-        scrollArea->setGeometry(QRect(10, 140, 661, 391));
+        scrollArea->setGeometry(QRect(10, 140, 681, 421));
         scrollArea->setWidgetResizable(true);
         canddiateList = new QWidget();
         canddiateList->setObjectName("canddiateList");
-        canddiateList->setGeometry(QRect(0, 0, 659, 389));
+        canddiateList->setGeometry(QRect(0, 0, 679, 419));
         verticalLayout = new QVBoxLayout(canddiateList);
         verticalLayout->setObjectName("verticalLayout");
         widget = new QWidget(canddiateList);
