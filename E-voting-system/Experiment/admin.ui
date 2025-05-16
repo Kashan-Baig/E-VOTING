@@ -154,6 +154,9 @@
      </item>
      <item>
       <widget class="QLineEdit" name="adminpass">
+       <property name="echoMode">
+        <enum>QLineEdit::EchoMode::Password</enum>
+       </property>
        <property name="placeholderText">
         <string>Enter password</string>
        </property>

@@ -158,6 +158,7 @@ public:
 
         adminpass = new QLineEdit(admin);
         adminpass->setObjectName("adminpass");
+        adminpass->setEchoMode(QLineEdit::EchoMode::Password);
 
         verticalLayout->addWidget(adminpass);
 

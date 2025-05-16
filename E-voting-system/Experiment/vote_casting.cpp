@@ -3,6 +3,7 @@
 #include "database.h"
 #include "qlabel.h"
 #include "QMessageBox"
+#include "After_voter_login.h"
 
 
 Vote_Casting::Vote_Casting(const QString &cnic ,QWidget *parent )
@@ -104,6 +105,10 @@ Vote_Casting::Vote_Casting(const QString &cnic ,QWidget *parent )
             if (Database::castVote(userCNIC, selectedCandidateCNIC)) {
                 QMessageBox::information(this, "Vote Cast", "Your vote has been cast successfully.");
                 // this->close(); // or disable UI
+                hide();
+                Login* bck = new Login();
+                bck->show();
+
             } else {
                 QMessageBox::critical(this, "Err    or", "Failed to cast vote. Try again.");
             }
